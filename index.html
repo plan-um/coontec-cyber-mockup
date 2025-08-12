@@ -41,11 +41,29 @@
       margin-bottom: 15px;
       padding-bottom: 8px;
       border-bottom: 2px solid #e2e8f0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-title:hover {
+      color: #667eea;
+    }
+    .section-title svg {
+      transition: transform 0.3s;
+    }
+    .section-content {
+      display: block;
+      transition: all 0.3s ease;
+    }
+    .section-content.collapsed {
+      display: none;
     }
     .page-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 15px;
+      padding-top: 10px;
     }
     .page-link {
       display: block;
@@ -81,6 +99,22 @@
       text-align: center;
       color: #718096;
     }
+    .expand-all {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .expand-all button {
+      padding: 8px 16px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .expand-all button:hover {
+      background: #5a67d8;
+    }
   </style>
 </head>
 <body>
@@ -88,215 +122,268 @@
     <h1>🚢 COONTEC 사이버 보안 시스템</h1>
     <p class="subtitle">한국선급(KR) 인증 선박 사이버보안 테스트 플랫폼 목업</p>
     
+    <div class="expand-all">
+      <button onclick="toggleAll()">모든 섹션 펼치기/접기</button>
+    </div>
+    
     <div class="section">
-      <h2 class="section-title">📊 메인</h2>
-      <div class="page-grid">
-        <a href="1_dashboard.html" class="page-link">
-          <div class="page-number">1</div>
-          <div class="page-name">대시보드</div>
-        </a>
-        <a href="2_project.html" class="page-link">
-          <div class="page-number">2</div>
-          <div class="page-name">프로젝트</div>
-        </a>
+      <h2 class="section-title" onclick="toggleSection(this)">
+        📊 메인
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </h2>
+      <div class="section-content">
+        <div class="page-grid">
+          <a href="1_dashboard.html" class="page-link">
+            <div class="page-number">1</div>
+            <div class="page-name">대시보드</div>
+          </a>
+          <a href="2_project.html" class="page-link">
+            <div class="page-number">2</div>
+            <div class="page-name">프로젝트</div>
+          </a>
+        </div>
       </div>
     </div>
     
     <div class="section">
-      <h2 class="section-title">🔍 시험 관리</h2>
-      <div class="page-grid">
-        
-        <a href="3_test_scan.html" class="page-link">
-          <div class="page-number">3.test.scan</div>
-          <div class="page-name">스캔시험</div>
-        </a>
-        <a href="3_1_test_scan_setup.html" class="page-link">
-          <div class="page-number">3.1.test.scan.setup</div>
-          <div class="page-name">스캔시험 설정</div>
-        </a>
-        <a href="3_2_test_scan_execute.html" class="page-link">
-          <div class="page-number">3.2.test.scan.execute</div>
-          <div class="page-name">스캔시험 실행</div>
-        </a>
-        <a href="3_3_test_scan_result.html" class="page-link">
-          <div class="page-number">3.3.test.scan.result</div>
-          <div class="page-name">스캔시험 결과</div>
-        </a>
-        <a href="3_4_test_scan_report.html" class="page-link">
-          <div class="page-number">3.4.test.scan.report</div>
-          <div class="page-name">스캔시험 보고서</div>
-        </a>
-        <a href="4_test_load.html" class="page-link">
-          <div class="page-number">4.test.load</div>
-          <div class="page-name">부하시험</div>
-        </a>
-        <a href="4_1_test_load_setup.html" class="page-link">
-          <div class="page-number">4.1.test.load.setup</div>
-          <div class="page-name">부하시험 설정</div>
-        </a>
-        <a href="4_2_test_load_execute.html" class="page-link">
-          <div class="page-number">4.2.test.load.execute</div>
-          <div class="page-name">부하시험 실행</div>
-        </a>
-        <a href="4_3_test_load_result.html" class="page-link">
-          <div class="page-number">4.3.test.load.result</div>
-          <div class="page-name">부하시험 결과</div>
-        </a>
-        <a href="4_4_test_load_report.html" class="page-link">
-          <div class="page-number">4.4.test.load.report</div>
-          <div class="page-name">부하시험 보고서</div>
-        </a>
-        <a href="9_1_data_test.html" class="page-link">
-          <div class="page-number">9.1.data.test</div>
-          <div class="page-name">테스트 데이터</div>
-        </a>
+      <h2 class="section-title" onclick="toggleSection(this)">
+        🔍 시험 관리
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </h2>
+      <div class="section-content">
+        <div class="page-grid">
+          
+          <a href="3_test_scan.html" class="page-link">
+            <div class="page-number">3.test.scan</div>
+            <div class="page-name">스캔시험</div>
+          </a>
+          <a href="3_1_test_scan_setup.html" class="page-link">
+            <div class="page-number">3.1.test.scan.setup</div>
+            <div class="page-name">스캔시험 설정</div>
+          </a>
+          <a href="3_2_test_scan_execute.html" class="page-link">
+            <div class="page-number">3.2.test.scan.execute</div>
+            <div class="page-name">스캔시험 실행</div>
+          </a>
+          <a href="3_3_test_scan_result.html" class="page-link">
+            <div class="page-number">3.3.test.scan.result</div>
+            <div class="page-name">스캔시험 결과</div>
+          </a>
+          <a href="3_4_test_scan_report.html" class="page-link">
+            <div class="page-number">3.4.test.scan.report</div>
+            <div class="page-name">스캔시험 보고서</div>
+          </a>
+          <a href="4_test_load.html" class="page-link">
+            <div class="page-number">4.test.load</div>
+            <div class="page-name">부하시험</div>
+          </a>
+          <a href="4_1_test_load_setup.html" class="page-link">
+            <div class="page-number">4.1.test.load.setup</div>
+            <div class="page-name">부하시험 설정</div>
+          </a>
+          <a href="4_2_test_load_execute.html" class="page-link">
+            <div class="page-number">4.2.test.load.execute</div>
+            <div class="page-name">부하시험 실행</div>
+          </a>
+          <a href="4_3_test_load_result.html" class="page-link">
+            <div class="page-number">4.3.test.load.result</div>
+            <div class="page-name">부하시험 결과</div>
+          </a>
+          <a href="4_4_test_load_report.html" class="page-link">
+            <div class="page-number">4.4.test.load.report</div>
+            <div class="page-name">부하시험 보고서</div>
+          </a>
+          <a href="9_1_data_test.html" class="page-link">
+            <div class="page-number">9.1.data.test</div>
+            <div class="page-name">테스트 데이터</div>
+          </a>
+        </div>
       </div>
     </div>
     
     <div class="section">
-      <h2 class="section-title">📄 보고서 관리</h2>
-      <div class="page-grid">
-        
-        <a href="3_4_test_scan_report.html" class="page-link">
-          <div class="page-number">3.4.test.scan.report</div>
-          <div class="page-name">스캔시험 보고서</div>
-        </a>
-        <a href="4_4_test_load_report.html" class="page-link">
-          <div class="page-number">4.4.test.load.report</div>
-          <div class="page-name">부하시험 보고서</div>
-        </a>
-        <a href="5_report_generate.html" class="page-link">
-          <div class="page-number">5.report.generate</div>
-          <div class="page-name">보고서 생성</div>
-        </a>
-        <a href="5_1_report_history.html" class="page-link">
-          <div class="page-number">5.1.report.history</div>
-          <div class="page-name">보고서 이력</div>
-        </a>
-        <a href="5_2_report_view.html" class="page-link">
-          <div class="page-number">5.2.report.view</div>
-          <div class="page-name">보고서 보기</div>
-        </a>
+      <h2 class="section-title" onclick="toggleSection(this)">
+        📄 보고서 관리
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </h2>
+      <div class="section-content">
+        <div class="page-grid">
+          
+          <a href="3_4_test_scan_report.html" class="page-link">
+            <div class="page-number">3.4.test.scan.report</div>
+            <div class="page-name">스캔시험 보고서</div>
+          </a>
+          <a href="4_4_test_load_report.html" class="page-link">
+            <div class="page-number">4.4.test.load.report</div>
+            <div class="page-name">부하시험 보고서</div>
+          </a>
+          <a href="5_report_generate.html" class="page-link">
+            <div class="page-number">5.report.generate</div>
+            <div class="page-name">보고서 생성</div>
+          </a>
+          <a href="5_1_report_history.html" class="page-link">
+            <div class="page-number">5.1.report.history</div>
+            <div class="page-name">보고서 이력</div>
+          </a>
+          <a href="5_2_report_view.html" class="page-link">
+            <div class="page-number">5.2.report.view</div>
+            <div class="page-name">보고서 보기</div>
+          </a>
+        </div>
       </div>
     </div>
     
     <div class="section">
-      <h2 class="section-title">🔑 라이선스</h2>
-      <div class="page-grid">
-        
-        <a href="6_license.html" class="page-link">
-          <div class="page-number">6.license</div>
-          <div class="page-name">라이선스 관리</div>
-        </a>
-        <a href="6_1_license_issue.html" class="page-link">
-          <div class="page-number">6.1.license.issue</div>
-          <div class="page-name">라이선스 발급</div>
-        </a>
-        <a href="6_2_license_renew.html" class="page-link">
-          <div class="page-number">6.2.license.renew</div>
-          <div class="page-name">라이선스 갱신</div>
-        </a>
-        <a href="6_3_license_history.html" class="page-link">
-          <div class="page-number">6.3.license.history</div>
-          <div class="page-name">라이선스 이력</div>
-        </a>
+      <h2 class="section-title" onclick="toggleSection(this)">
+        🔑 라이선스
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </h2>
+      <div class="section-content">
+        <div class="page-grid">
+          
+          <a href="6_license.html" class="page-link">
+            <div class="page-number">6.license</div>
+            <div class="page-name">라이선스 관리</div>
+          </a>
+          <a href="6_1_license_issue.html" class="page-link">
+            <div class="page-number">6.1.license.issue</div>
+            <div class="page-name">라이선스 발급</div>
+          </a>
+          <a href="6_2_license_renew.html" class="page-link">
+            <div class="page-number">6.2.license.renew</div>
+            <div class="page-name">라이선스 갱신</div>
+          </a>
+          <a href="6_3_license_history.html" class="page-link">
+            <div class="page-number">6.3.license.history</div>
+            <div class="page-name">라이선스 이력</div>
+          </a>
+        </div>
       </div>
     </div>
     
     <div class="section">
-      <h2 class="section-title">👥 사용자 및 고객사</h2>
-      <div class="page-grid">
-        
-        <a href="7_customers.html" class="page-link">
-          <div class="page-number">7.customers</div>
-          <div class="page-name">고객사 관리</div>
-        </a>
-        <a href="7_1_customers_register.html" class="page-link">
-          <div class="page-number">7.1.customers.register</div>
-          <div class="page-name">고객사 등록</div>
-        </a>
-        <a href="8_users.html" class="page-link">
-          <div class="page-number">8.users</div>
-          <div class="page-name">사용자 관리</div>
-        </a>
-        <a href="8_1_users_register.html" class="page-link">
-          <div class="page-number">8.1.users.register</div>
-          <div class="page-name">사용자 등록</div>
-        </a>
-        <a href="8_2_users_permissions.html" class="page-link">
-          <div class="page-number">8.2.users.permissions</div>
-          <div class="page-name">권한 관리</div>
-        </a>
+      <h2 class="section-title" onclick="toggleSection(this)">
+        👥 사용자 및 고객사
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </h2>
+      <div class="section-content">
+        <div class="page-grid">
+          
+          <a href="7_customers.html" class="page-link">
+            <div class="page-number">7.customers</div>
+            <div class="page-name">고객사 관리</div>
+          </a>
+          <a href="7_1_customers_register.html" class="page-link">
+            <div class="page-number">7.1.customers.register</div>
+            <div class="page-name">고객사 등록</div>
+          </a>
+          <a href="8_users.html" class="page-link">
+            <div class="page-number">8.users</div>
+            <div class="page-name">사용자 관리</div>
+          </a>
+          <a href="8_1_users_register.html" class="page-link">
+            <div class="page-number">8.1.users.register</div>
+            <div class="page-name">사용자 등록</div>
+          </a>
+          <a href="8_2_users_permissions.html" class="page-link">
+            <div class="page-number">8.2.users.permissions</div>
+            <div class="page-name">권한 관리</div>
+          </a>
+        </div>
       </div>
     </div>
     
     <div class="section">
-      <h2 class="section-title">⚙️ 시스템 관리</h2>
-      <div class="page-grid">
-        
-        <a href="9_data_backup.html" class="page-link">
-          <div class="page-number">9.data.backup</div>
-          <div class="page-name">백업/복원</div>
-        </a>
-        <a href="9_1_data_test.html" class="page-link">
-          <div class="page-number">9.1.data.test</div>
-          <div class="page-name">테스트 데이터</div>
-        </a>
-        <a href="10_settings.html" class="page-link">
-          <div class="page-number">10.settings</div>
-          <div class="page-name">시스템 설정</div>
-        </a>
-        <a href="10_1_settings_integration.html" class="page-link">
-          <div class="page-number">10.1.settings.integration</div>
-          <div class="page-name">연동 설정</div>
-        </a>
-        <a href="10_2_settings_tools.html" class="page-link">
-          <div class="page-number">10.2.settings.tools</div>
-          <div class="page-name">도구 설정</div>
-        </a>
-        <a href="11_logs_audit.html" class="page-link">
-          <div class="page-number">11.logs.audit</div>
-          <div class="page-name">감사 로그</div>
-        </a>
-        <a href="11_1_logs_operation.html" class="page-link">
-          <div class="page-number">11.1.logs.operation</div>
-          <div class="page-name">작업 로그</div>
-        </a>
-        <a href="11_2_logs_archive.html" class="page-link">
-          <div class="page-number">11.2.logs.archive</div>
-          <div class="page-name">로그 보관</div>
-        </a>
+      <h2 class="section-title" onclick="toggleSection(this)">
+        ⚙️ 시스템 관리
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </h2>
+      <div class="section-content">
+        <div class="page-grid">
+          
+          <a href="9_data_backup.html" class="page-link">
+            <div class="page-number">9.data.backup</div>
+            <div class="page-name">백업/복원</div>
+          </a>
+          <a href="9_1_data_test.html" class="page-link">
+            <div class="page-number">9.1.data.test</div>
+            <div class="page-name">테스트 데이터</div>
+          </a>
+          <a href="10_settings.html" class="page-link">
+            <div class="page-number">10.settings</div>
+            <div class="page-name">시스템 설정</div>
+          </a>
+          <a href="10_1_settings_integration.html" class="page-link">
+            <div class="page-number">10.1.settings.integration</div>
+            <div class="page-name">연동 설정</div>
+          </a>
+          <a href="10_2_settings_tools.html" class="page-link">
+            <div class="page-number">10.2.settings.tools</div>
+            <div class="page-name">도구 설정</div>
+          </a>
+          <a href="11_logs_audit.html" class="page-link">
+            <div class="page-number">11.logs.audit</div>
+            <div class="page-name">감사 로그</div>
+          </a>
+          <a href="11_1_logs_operation.html" class="page-link">
+            <div class="page-number">11.1.logs.operation</div>
+            <div class="page-name">작업 로그</div>
+          </a>
+          <a href="11_2_logs_archive.html" class="page-link">
+            <div class="page-number">11.2.logs.archive</div>
+            <div class="page-name">로그 보관</div>
+          </a>
+        </div>
       </div>
     </div>
     
     <div class="section">
-      <h2 class="section-title">ℹ️ 기타</h2>
-      <div class="page-grid">
-        
-        <a href="12_notifications.html" class="page-link">
-          <div class="page-number">12.notifications</div>
-          <div class="page-name">알림</div>
-        </a>
-        <a href="13_help_guide.html" class="page-link">
-          <div class="page-number">13.help.guide</div>
-          <div class="page-name">사용자 가이드</div>
-        </a>
-        <a href="13_1_help_faq.html" class="page-link">
-          <div class="page-number">13.1.help.faq</div>
-          <div class="page-name">FAQ</div>
-        </a>
-        <a href="13_2_help_faq_manage.html" class="page-link">
-          <div class="page-number">13.2.help.faq.manage</div>
-          <div class="page-name">FAQ 관리</div>
-        </a>
-        <a href="14_announcement.html" class="page-link">
-          <div class="page-number">14.announcement</div>
-          <div class="page-name">공지사항</div>
-        </a>
-        <a href="14_1_announcement_create.html" class="page-link">
-          <div class="page-number">14.1.announcement.create</div>
-          <div class="page-name">공지사항 작성</div>
-        </a>
+      <h2 class="section-title" onclick="toggleSection(this)">
+        ℹ️ 기타
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </h2>
+      <div class="section-content">
+        <div class="page-grid">
+          
+          <a href="12_notifications.html" class="page-link">
+            <div class="page-number">12.notifications</div>
+            <div class="page-name">알림</div>
+          </a>
+          <a href="13_help_guide.html" class="page-link">
+            <div class="page-number">13.help.guide</div>
+            <div class="page-name">사용자 가이드</div>
+          </a>
+          <a href="13_1_help_faq.html" class="page-link">
+            <div class="page-number">13.1.help.faq</div>
+            <div class="page-name">FAQ</div>
+          </a>
+          <a href="13_2_help_faq_manage.html" class="page-link">
+            <div class="page-number">13.2.help.faq.manage</div>
+            <div class="page-name">FAQ 관리</div>
+          </a>
+          <a href="14_announcement.html" class="page-link">
+            <div class="page-number">14.announcement</div>
+            <div class="page-name">공지사항</div>
+          </a>
+          <a href="14_1_announcement_create.html" class="page-link">
+            <div class="page-number">14.1.announcement.create</div>
+            <div class="page-name">공지사항 작성</div>
+          </a>
+        </div>
       </div>
     </div>
     
@@ -304,5 +391,36 @@
       <p>© 2024 COONTEC. 한국선급(KR) 인증 사이버보안 테스트 플랫폼</p>
     </div>
   </div>
+  
+  <script>
+    function toggleSection(element) {
+      const content = element.nextElementSibling;
+      const arrow = element.querySelector('svg');
+      
+      content.classList.toggle('collapsed');
+      
+      if (content.classList.contains('collapsed')) {
+        arrow.style.transform = 'rotate(-90deg)';
+      } else {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+    
+    function toggleAll() {
+      const sections = document.querySelectorAll('.section-content');
+      const allCollapsed = Array.from(sections).every(s => s.classList.contains('collapsed'));
+      
+      sections.forEach(section => {
+        const arrow = section.previousElementSibling.querySelector('svg');
+        if (allCollapsed) {
+          section.classList.remove('collapsed');
+          arrow.style.transform = 'rotate(0deg)';
+        } else {
+          section.classList.add('collapsed');
+          arrow.style.transform = 'rotate(-90deg)';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
