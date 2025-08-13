@@ -513,7 +513,7 @@ select { print-color-adjust: exact; background-image: url("data:image/svg+xml,%3
 .pt-7 { padding-top: 1.75rem; }
 .pt-2 { padding-top: 0.5rem; }
 .text-left { text-align: left; }
-.text-center { text-align: center; }
+.text-center { text-align: left; }
 .text-right { text-align: right; }
 .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 .text-2xl { font-size: 1.5rem; line-height: 2rem; }
@@ -827,6 +827,56 @@ body { background: var(--background); color: var(--foreground); font-family: Ari
     /* 가운데 정렬 제거 */
     aside .text-center {
       text-align: left !important;
+    }
+  
+    /* 사이드바 가운데 정렬 완전 제거 */
+    aside * {
+      text-align: left !important;
+    }
+    
+    aside button,
+    aside a,
+    aside span,
+    aside div {
+      text-align: left !important;
+      justify-content: flex-start !important;
+    }
+    
+    aside .flex {
+      justify-content: flex-start !important;
+    }
+    
+    aside .justify-center {
+      justify-content: flex-start !important;
+    }
+    
+    aside .justify-between {
+      justify-content: space-between !important;
+    }
+    
+    aside .items-center {
+      align-items: center !important;
+    }
+    
+    /* 사이드바 내부의 모든 text-center 클래스 무효화 */
+    aside .text-center {
+      text-align: left !important;
+    }
+    
+    /* 사이드바 버튼과 링크 내부 정렬 */
+    aside button > div,
+    aside a > div {
+      justify-content: flex-start !important;
+      text-align: left !important;
+    }
+    
+    /* 사이드바 메뉴 아이템 간격 조정 */
+    aside .gap-3 {
+      gap: 0.75rem !important;
+    }
+    
+    aside .gap-2 {
+      gap: 0.5rem !important;
     }
   </style>
 </head>
