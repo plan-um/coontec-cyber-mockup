@@ -1,426 +1,329 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COONTEC 사이버 보안 시스템 - 목업</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #1a202c;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    .subtitle {
-      color: #718096;
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 1.1rem;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-    .section-title {
-      font-size: 1.3rem;
-      color: #2d3748;
-      margin-bottom: 15px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #e2e8f0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .section-title:hover {
-      color: #667eea;
-    }
-    .section-title svg {
-      transition: transform 0.3s;
-    }
-    .section-content {
-      display: block;
-      transition: all 0.3s ease;
-    }
-    .section-content.collapsed {
-      display: none;
-    }
-    .page-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-      padding-top: 10px;
-    }
-    .page-link {
-      display: block;
-      padding: 15px;
-      background: #f7fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #2d3748;
-      transition: all 0.3s ease;
-    }
-    .page-link:hover {
-      background: #667eea;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .page-number {
-      font-size: 0.875rem;
-      color: #a0aec0;
-      margin-bottom: 4px;
-    }
-    .page-link:hover .page-number {
-      color: rgba(255,255,255,0.8);
-    }
-    .page-name {
-      font-weight: 600;
-    }
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #e2e8f0;
-      text-align: center;
-      color: #718096;
-    }
-    .expand-all {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .expand-all button {
-      padding: 8px 16px;
-      background: #667eea;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .expand-all button:hover {
-      background: #5a67d8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿤텍 사이버복원력 시험솔루션 - 화면 목록</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-foreground: #ffffff;
+            --secondary: #f1f5f9;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --background: #ffffff;
+            --foreground: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background: var(--background);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+            color: var(--primary-foreground);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--foreground);
+        }
+
+        .card-description {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--primary-foreground);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .card-link:hover {
+            background: #1d4ed8;
+        }
+
+        .stats {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: var(--background);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🚢 COONTEC 사이버 보안 시스템</h1>
-    <p class="subtitle">한국선급(KR) 인증 선박 사이버보안 테스트 플랫폼 목업</p>
-    
-    <div class="expand-all">
-      <button onclick="toggleAll()">모든 섹션 펼치기/접기</button>
-    </div>
-    
-    <div class="section">
-      <h2 class="section-title" onclick="toggleSection(this)">
-        📊 메인
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </h2>
-      <div class="section-content">
-        <div class="page-grid">
-          <a href="1_dashboard.html" class="page-link">
-            <div class="page-number">1</div>
-            <div class="page-name">대시보드</div>
-          </a>
-          <a href="2_project.html" class="page-link">
-            <div class="page-number">2</div>
-            <div class="page-name">프로젝트</div>
-          </a>
+    <div class="header">
+        <div class="container">
+            <h1>🔐 쿤텍 사이버복원력 시험솔루션</h1>
+            <p>웹화면 및 모바일 어플리케이션 UI/UX 목록</p>
         </div>
-      </div>
     </div>
-    
-    <div class="section">
-      <h2 class="section-title" onclick="toggleSection(this)">
-        🔍 시험 관리
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </h2>
-      <div class="section-content">
-        <div class="page-grid">
-          
-          <a href="3_test_scan.html" class="page-link">
-            <div class="page-number">3.test.scan</div>
-            <div class="page-name">스캔시험</div>
-          </a>
-          <a href="3_1_test_scan_setup.html" class="page-link">
-            <div class="page-number">3.1.test.scan.setup</div>
-            <div class="page-name">스캔시험 설정</div>
-          </a>
-          <a href="3_2_test_scan_execute.html" class="page-link">
-            <div class="page-number">3.2.test.scan.execute</div>
-            <div class="page-name">스캔시험 실행</div>
-          </a>
-          <a href="3_3_test_scan_result.html" class="page-link">
-            <div class="page-number">3.3.test.scan.result</div>
-            <div class="page-name">스캔시험 결과</div>
-          </a>
-          <a href="3_4_test_scan_report.html" class="page-link">
-            <div class="page-number">3.4.test.scan.report</div>
-            <div class="page-name">스캔시험 보고서</div>
-          </a>
-          <a href="4_test_load.html" class="page-link">
-            <div class="page-number">4.test.load</div>
-            <div class="page-name">부하시험</div>
-          </a>
-          <a href="4_1_test_load_setup.html" class="page-link">
-            <div class="page-number">4.1.test.load.setup</div>
-            <div class="page-name">부하시험 설정</div>
-          </a>
-          <a href="4_2_test_load_execute.html" class="page-link">
-            <div class="page-number">4.2.test.load.execute</div>
-            <div class="page-name">부하시험 실행</div>
-          </a>
-          <a href="4_3_test_load_result.html" class="page-link">
-            <div class="page-number">4.3.test.load.result</div>
-            <div class="page-name">부하시험 결과</div>
-          </a>
-          <a href="4_4_test_load_report.html" class="page-link">
-            <div class="page-number">4.4.test.load.report</div>
-            <div class="page-name">부하시험 보고서</div>
-          </a>
-          <a href="9_1_data_test.html" class="page-link">
-            <div class="page-number">9.1.data.test</div>
-            <div class="page-name">테스트 데이터</div>
-          </a>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="web-count">-</div>
+                    <div class="stat-label">웹화면 페이지</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="app-count">-</div>
+                    <div class="stat-label">모바일 앱 페이지</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="total-count">-</div>
+                    <div class="stat-label">전체 페이지</div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    
-    <div class="section">
-      <h2 class="section-title" onclick="toggleSection(this)">
-        📄 보고서 관리
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </h2>
-      <div class="section-content">
-        <div class="page-grid">
-          
-          <a href="3_4_test_scan_report.html" class="page-link">
-            <div class="page-number">3.4.test.scan.report</div>
-            <div class="page-name">스캔시험 보고서</div>
-          </a>
-          <a href="4_4_test_load_report.html" class="page-link">
-            <div class="page-number">4.4.test.load.report</div>
-            <div class="page-name">부하시험 보고서</div>
-          </a>
-          <a href="5_report_generate.html" class="page-link">
-            <div class="page-number">5.report.generate</div>
-            <div class="page-name">보고서 생성</div>
-          </a>
-          <a href="5_1_report_history.html" class="page-link">
-            <div class="page-number">5.1.report.history</div>
-            <div class="page-name">보고서 이력</div>
-          </a>
-          <a href="5_2_report_view.html" class="page-link">
-            <div class="page-number">5.2.report.view</div>
-            <div class="page-name">보고서 보기</div>
-          </a>
+
+        <!-- 웹화면 섹션 -->
+        <div class="section">
+            <h2 class="section-title">🖥️ 웹화면 (통합관리서버)</h2>
+            <div class="grid" id="web-pages"></div>
         </div>
-      </div>
-    </div>
-    
-    <div class="section">
-      <h2 class="section-title" onclick="toggleSection(this)">
-        🔑 라이선스
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </h2>
-      <div class="section-content">
-        <div class="page-grid">
-          
-          <a href="6_license.html" class="page-link">
-            <div class="page-number">6.license</div>
-            <div class="page-name">라이선스 관리</div>
-          </a>
-          <a href="6_1_license_issue.html" class="page-link">
-            <div class="page-number">6.1.license.issue</div>
-            <div class="page-name">라이선스 발급</div>
-          </a>
-          <a href="6_2_license_renew.html" class="page-link">
-            <div class="page-number">6.2.license.renew</div>
-            <div class="page-name">라이선스 갱신</div>
-          </a>
-          <a href="6_3_license_history.html" class="page-link">
-            <div class="page-number">6.3.license.history</div>
-            <div class="page-name">라이선스 이력</div>
-          </a>
+
+        <!-- 모바일 앱 섹션 -->
+        <div class="section">
+            <h2 class="section-title">📱 모바일 어플리케이션 (현장시험도구)</h2>
+            <div class="grid" id="app-pages"></div>
         </div>
-      </div>
     </div>
-    
-    <div class="section">
-      <h2 class="section-title" onclick="toggleSection(this)">
-        👥 사용자 및 고객사
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </h2>
-      <div class="section-content">
-        <div class="page-grid">
-          
-          <a href="7_customers.html" class="page-link">
-            <div class="page-number">7.customers</div>
-            <div class="page-name">고객사 관리</div>
-          </a>
-          <a href="7_1_customers_register.html" class="page-link">
-            <div class="page-number">7.1.customers.register</div>
-            <div class="page-name">고객사 등록</div>
-          </a>
-          <a href="8_users.html" class="page-link">
-            <div class="page-number">8.users</div>
-            <div class="page-name">사용자 관리</div>
-          </a>
-          <a href="8_1_users_register.html" class="page-link">
-            <div class="page-number">8.1.users.register</div>
-            <div class="page-name">사용자 등록</div>
-          </a>
-          <a href="8_2_users_permissions.html" class="page-link">
-            <div class="page-number">8.2.users.permissions</div>
-            <div class="page-name">권한 관리</div>
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="section">
-      <h2 class="section-title" onclick="toggleSection(this)">
-        ⚙️ 시스템 관리
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </h2>
-      <div class="section-content">
-        <div class="page-grid">
-          
-          <a href="9_data_backup.html" class="page-link">
-            <div class="page-number">9.data.backup</div>
-            <div class="page-name">백업/복원</div>
-          </a>
-          <a href="9_1_data_test.html" class="page-link">
-            <div class="page-number">9.1.data.test</div>
-            <div class="page-name">테스트 데이터</div>
-          </a>
-          <a href="10_settings.html" class="page-link">
-            <div class="page-number">10.settings</div>
-            <div class="page-name">시스템 설정</div>
-          </a>
-          <a href="10_1_settings_integration.html" class="page-link">
-            <div class="page-number">10.1.settings.integration</div>
-            <div class="page-name">연동 설정</div>
-          </a>
-          <a href="10_2_settings_tools.html" class="page-link">
-            <div class="page-number">10.2.settings.tools</div>
-            <div class="page-name">도구 설정</div>
-          </a>
-          <a href="11_logs_audit.html" class="page-link">
-            <div class="page-number">11.logs.audit</div>
-            <div class="page-name">감사 로그</div>
-          </a>
-          <a href="11_1_logs_operation.html" class="page-link">
-            <div class="page-number">11.1.logs.operation</div>
-            <div class="page-name">작업 로그</div>
-          </a>
-          <a href="11_2_logs_archive.html" class="page-link">
-            <div class="page-number">11.2.logs.archive</div>
-            <div class="page-name">로그 보관</div>
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="section">
-      <h2 class="section-title" onclick="toggleSection(this)">
-        ℹ️ 기타
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </h2>
-      <div class="section-content">
-        <div class="page-grid">
-          
-          <a href="13-1_알림.html" class="page-link">
-            <div class="page-number">12.notifications</div>
-            <div class="page-name">알림</div>
-          </a>
-          <a href="14-1_도움말.html" class="page-link">
-            <div class="page-number">13.help.guide</div>
-            <div class="page-name">사용자 가이드</div>
-          </a>
-          <a href="14-2_FAQ.html" class="page-link">
-            <div class="page-number">13.1.help.faq</div>
-            <div class="page-name">FAQ</div>
-          </a>
-          <a href="14-3_FAQ관리.html" class="page-link">
-            <div class="page-number">13.2.help.faq.manage</div>
-            <div class="page-name">FAQ 관리</div>
-          </a>
-          <a href="14_announcement.html" class="page-link">
-            <div class="page-number">14.announcement</div>
-            <div class="page-name">공지사항</div>
-          </a>
-          <a href="14_1_announcement_create.html" class="page-link">
-            <div class="page-number">14.1.announcement.create</div>
-            <div class="page-name">공지사항 작성</div>
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="footer">
-      <p>© 2024 COONTEC. 한국선급(KR) 인증 사이버보안 테스트 플랫폼</p>
-    </div>
-  </div>
-  
-  <script>
-    function toggleSection(element) {
-      const content = element.nextElementSibling;
-      const arrow = element.querySelector('svg');
-      
-      content.classList.toggle('collapsed');
-      
-      if (content.classList.contains('collapsed')) {
-        arrow.style.transform = 'rotate(-90deg)';
-      } else {
-        arrow.style.transform = 'rotate(0deg)';
-      }
-    }
-    
-    function toggleAll() {
-      const sections = document.querySelectorAll('.section-content');
-      const allCollapsed = Array.from(sections).every(s => s.classList.contains('collapsed'));
-      
-      sections.forEach(section => {
-        const arrow = section.previousElementSibling.querySelector('svg');
-        if (allCollapsed) {
-          section.classList.remove('collapsed');
-          arrow.style.transform = 'rotate(0deg)';
-        } else {
-          section.classList.add('collapsed');
-          arrow.style.transform = 'rotate(-90deg)';
+
+    <script>
+        // 웹화면 페이지 목록
+        const webPages = [
+            { file: "1-1_로그인.html", title: "로그인", description: "사용자 인증 화면" },
+            { file: "1-2_비밀번호재설정.html", title: "비밀번호 재설정", description: "비밀번호 재설정 화면" },
+            { file: "1-3_e-class_SSO.html", title: "e-class SSO", description: "한국선급 SSO 로그인" },
+            { file: "1-4_KR-DAON_SSO.html", title: "KR-DAON SSO", description: "고객사 SSO 로그인" },
+            { file: "1-5_회원가입.html", title: "회원가입", description: "신규 사용자 등록 화면" },
+            { file: "2-1_메인대시보드(관리자).html", title: "메인 대시보드", description: "통합 현황 모니터링 화면" },
+            { file: "3-1_공지사항.html", title: "공지사항", description: "공지사항 게시판 화면" },
+            { file: "3-2_공지사항작성.html", title: "공지사항 작성", description: "공지사항 작성 화면" },
+            { file: "4-1_통합프로젝트.html", title: "통합 프로젝트", description: "프로젝트 목록 화면" },
+            { file: "4-4_관리영역.html", title: "관리영역", description: "Zone & Conduits 관리 화면" },
+            { file: "5-1_스캔시험.html", title: "스캔시험", description: "스캔시험 관리 화면" },
+            { file: "5-2_스캔설정.html", title: "스캔시험 설정", description: "스캔시험 설정 화면" },
+            { file: "5-3_시험실행_스캔.html", title: "스캔시험 실행", description: "스캔시험 실행 화면" },
+            { file: "5-4_스캔결과.html", title: "스캔시험 결과", description: "스캔 결과 조회 화면" },
+            { file: "6-1_부하시험.html", title: "부하시험", description: "부하시험 관리 화면" },
+            { file: "6-2_부하설정.html", title: "부하시험 설정", description: "부하시험 설정 화면" },
+            { file: "6-3_시험실행_부하.html", title: "부하시험 실행", description: "부하시험 실행 화면" },
+            { file: "6-4_부하결과.html", title: "부하시험 결과", description: "부하 결과 분석 화면" },
+            { file: "7-1_발급관리.html", title: "라이선스 발급/관리", description: "라이선스 발급 관리 화면" },
+            { file: "7-2_라이선스발급.html", title: "라이선스 발급", description: "신규 라이선스 발급 화면" },
+            { file: "7-3_라이선스갱신.html", title: "라이선스 갱신", description: "라이선스 갱신 화면" },
+            { file: "7-4_검증이력.html", title: "검증 이력", description: "검증 로그 조회 화면" },
+            { file: "7-5_요청할당.html", title: "라이선스 요청/할당", description: "라이선스 요청 관리 화면" },
+            { file: "7-6_요청승인.html", title: "요청 승인", description: "요청 승인 처리 화면" },
+            { file: "7-7_사용자할당.html", title: "사용자 할당", description: "실무자 할당 화면" },
+            { file: "9-1_보고서생성.html", title: "보고서 생성", description: "보고서 생성 화면" },
+            { file: "9-6_보고서출력.html", title: "보고서 출력", description: "보고서 다운로드 화면" },
+            { file: "9-7_보고서이력.html", title: "보고서 이력", description: "보고서 이력 관리 화면" },
+            { file: "9-8_보고서조회.html", title: "보고서 조회", description: "과거 보고서 검색 화면" },
+            { file: "9-9_보고서이력_버전관리.html", title: "보고서 버전관리", description: "버전 이력 화면" },
+            { file: "10-1_사용자관리.html", title: "사용자 관리", description: "사용자 목록 화면" },
+            { file: "10-2_사용자등록.html", title: "사용자 등록", description: "사용자 생성 화면" },
+            { file: "10-3_사용자상세.html", title: "사용자 상세", description: "사용자 정보 화면" },
+            { file: "10-4_권한관리.html", title: "권한 관리", description: "권한 설정 화면" },
+            { file: "10-7_고객사관리.html", title: "고객사 관리", description: "고객사 목록 화면" },
+            { file: "10-8_고객사등록.html", title: "고객사 등록", description: "고객사 등록 화면" },
+            { file: "10-9_고객사상세.html", title: "고객사 상세", description: "고객사 상세 화면" },
+            { file: "11-1_시스템설정.html", title: "시스템 설정", description: "시스템 설정 화면" },
+            { file: "11-7_연동관리.html", title: "연동 관리", description: "외부 연동 화면" },
+            { file: "12-1_감사로그.html", title: "감사 로그", description: "감사 로그 조회 화면" },
+            { file: "12-7_운영로그.html", title: "운영 로그", description: "시스템 운영 로그 화면" },
+            { file: "12-8_로그보관.html", title: "로그 보관", description: "로그 보관 정책 화면" },
+            { file: "13-1_알림.html", title: "알림", description: "알림 센터 화면" },
+            { file: "14-1_사용자가이드.html", title: "사용자 가이드", description: "사용자 매뉴얼 화면" },
+            { file: "14-4_FAQ.html", title: "FAQ", description: "자주 묻는 질문 화면" },
+            { file: "14-5_FAQ관리.html", title: "FAQ 관리", description: "FAQ 등록/수정 화면" }
+        ];
+
+        // 모바일 앱 페이지 목록
+        const appPages = [
+            { file: "Coontec_Cyber_App/1-1_로그인.html", title: "앱 로그인", description: "앱 사용자 인증 화면" },
+            { file: "Coontec_Cyber_App/2-1_메인대시보드.html", title: "메인 대시보드", description: "통합 현황 모니터링 화면" },
+            { file: "Coontec_Cyber_App/4-2_프로젝트생성.html", title: "프로젝트 생성", description: "신규 프로젝트 생성 화면" },
+            { file: "Coontec_Cyber_App/4-3_프로젝트상세.html", title: "프로젝트 상세", description: "프로젝트 상세 정보 화면" },
+            { file: "Coontec_Cyber_App/4-4_네트워크존.html", title: "네트워크 존", description: "Zone & Conduits 관리 화면" },
+            { file: "Coontec_Cyber_App/4-6_선박목록.html", title: "선박 목록", description: "프로젝트별 선박 목록 화면" },
+            { file: "Coontec_Cyber_App/5-2_시험설정.html", title: "스캔시험 설정", description: "스캔시험 설정 화면" },
+            { file: "Coontec_Cyber_App/5-3_시험실행.html", title: "스캔시험 실행", description: "스캔시험 실행 화면" },
+            { file: "Coontec_Cyber_App/5-4_시험결과.html", title: "스캔시험 결과", description: "스캔 결과 조회 화면" },
+            { file: "Coontec_Cyber_App/6-2_시험설정.html", title: "부하시험 설정", description: "부하시험 설정 화면" },
+            { file: "Coontec_Cyber_App/6-3_시험실행.html", title: "부하시험 실행", description: "부하시험 실행 화면" },
+            { file: "Coontec_Cyber_App/6-4_시험결과.html", title: "부하시험 결과", description: "부하 결과 분석 화면" },
+            { file: "Coontec_Cyber_App/6-6_사설보고서.html", title: "부하시험 사설 보고서", description: "부하시험 사설 보고서 생성" },
+            { file: "Coontec_Cyber_App/7-8_라이선스관리.html", title: "라이선스 관리 (TOL)", description: "오프라인 라이선스 관리 화면" },
+            { file: "Coontec_Cyber_App/7-9_오프라인인증.html", title: "오프라인 인증", description: "오프라인 인증 처리 화면" },
+            { file: "Coontec_Cyber_App/8-1_시험데이터.html", title: "시험 데이터", description: "시험 데이터 관리 화면" },
+            { file: "Coontec_Cyber_App/8-2_데이터조회.html", title: "데이터 조회", description: "상세 데이터 조회 화면" },
+            { file: "Coontec_Cyber_App/8-3_데이터분석.html", title: "데이터 분석", description: "데이터 분석 도구 화면" },
+            { file: "Coontec_Cyber_App/8-4_데이터수정.html", title: "데이터 수정", description: "데이터 편집 화면" },
+            { file: "Coontec_Cyber_App/8-5_백업복구.html", title: "백업/복구", description: "백업 및 복구 관리 화면" },
+            { file: "Coontec_Cyber_App/8-6_백업실행.html", title: "백업 실행", description: "백업 수행 화면" },
+            { file: "Coontec_Cyber_App/8-7_복구실행.html", title: "복구 실행", description: "데이터 복구 화면" },
+            { file: "Coontec_Cyber_App/9-1_보고서생성.html", title: "보고서 생성", description: "보고서 생성 선택 화면" },
+            { file: "Coontec_Cyber_App/9-2_프로젝트보고서.html", title: "프로젝트 보고서", description: "프로젝트 종합 보고서 생성" },
+            { file: "Coontec_Cyber_App/9-3_시험보고서.html", title: "시험 보고서", description: "개별 시험 보고서 생성" },
+            { file: "Coontec_Cyber_App/9-10_사설보고서.html", title: "사설 보고서 (TOL)", description: "오프라인 사설 보고서 관리" },
+            { file: "Coontec_Cyber_App/9-11_보고서관리.html", title: "보고서 관리", description: "사설 보고서 목록 관리" },
+            { file: "Coontec_Cyber_App/9-12_보고서출력.html", title: "보고서 출력", description: "사설 보고서 출력 화면" },
+            { file: "Coontec_Cyber_App/10-10_사용자관리.html", title: "사용자 관리 (TOL)", description: "오프라인 사용자 관리 화면" },
+            { file: "Coontec_Cyber_App/11-10_현장시험도구관리.html", title: "현장시험도구 관리", description: "시험도구 설정 관리 화면" },
+            { file: "Coontec_Cyber_App/11-11_버전관리.html", title: "버전 관리", description: "도구 버전 관리 화면" },
+            { file: "Coontec_Cyber_App/11-12_업데이트관리.html", title: "업데이트 관리", description: "업데이트 설정 화면" },
+            { file: "Coontec_Cyber_App/14-1_사용자가이드.html", title: "사용자 가이드", description: "사용자 매뉴얼 화면" },
+            { file: "Coontec_Cyber_App/시나리오_Qoder.html", title: "사용자 시나리오", description: "사용자 시나리오 가이드" }
+        ];
+
+        // 페이지 렌더링 함수
+        function renderPages(pages, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            pages.forEach(page => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-title">${page.title}</div>
+                    <div class="card-description">${page.description}</div>
+                    <a href="${page.file}" class="card-link" target="_blank">화면 보기</a>
+                `;
+                container.appendChild(card);
+            });
         }
-      });
-    }
-  </script>
+
+        // 통계 업데이트
+        function updateStats() {
+            document.getElementById('web-count').textContent = webPages.length;
+            document.getElementById('app-count').textContent = appPages.length;
+            document.getElementById('total-count').textContent = webPages.length + appPages.length;
+        }
+
+        // 페이지 로드 시 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPages(webPages, 'web-pages');
+            renderPages(appPages, 'app-pages');
+            updateStats();
+        });
+    </script>
 </body>
 </html>

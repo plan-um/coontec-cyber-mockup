@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보고서 생성 - COONTEC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .app-window {
+            background: #1e1e2e;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar {
+            background: #27293d;
+            border-right: 1px solid #3a3c52;
+        }
+        .content-area {
+            background: #2b2d42;
+            overflow-y: auto;
+        }
+        .card-dark {
+            background: #27293d;
+            border: 1px solid #3a3c52;
+        }
+        .input-dark {
+            background: #1e1e2e;
+            border: 1px solid #3a3c52;
+            color: white;
+        }
+        .report-preview {
+            background: white;
+            color: black;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .checkbox-dark {
+            background: #1e1e2e;
+            border: 1px solid #3a3c52;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-window">
+        <!-- 타이틀 바 -->
+        <div class="bg-gray-900 h-10 flex items-center justify-between px-4 border-b border-gray-700">
+            <div class="flex items-center gap-3">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-gray-400 text-sm">COONTEC 사이버복원력 시험도구 v2.0 - 보고서 생성</span>
+            </div>
+        </div>
+
+        <div class="flex flex-1">
+            <!-- 사이드바 -->
+            <aside class="sidebar w-72 p-3 flex flex-col">
+                <!-- Content will be injected by enhanced-sidebar-app.js -->
+            </aside>
+
+            <!-- 메인 콘텐츠 -->
+            <main class="content-area flex-1 p-6">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">보고서 생성</h2>
+                    <p class="text-gray-400">사이버복원력 시험 결과 보고서를 생성합니다</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- 보고서 설정 -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- 기본 정보 -->
+                        <div class="card-dark rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">기본 정보</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm text-gray-400 mb-2">보고서 제목</label>
+                                    <input type="text" class="input-dark w-full px-4 py-2 rounded-lg" value="한라호 사이버복원력 시험 결과 보고서">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm text-gray-400 mb-2">프로젝트</label>
+                                        <select class="input-dark w-full px-4 py-2 rounded-lg">
+                                            <option>한라호 사이버복원력 인증</option>
+                                            <option>독도호 사이버복원력 인증</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-400 mb-2">선박</label>
+                                        <select class="input-dark w-full px-4 py-2 rounded-lg">
+                                            <option>한라호</option>
+                                            <option>독도호</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm text-gray-400 mb-2">보고서 유형</label>
+                                        <select class="input-dark w-full px-4 py-2 rounded-lg">
+                                            <option>통합 보고서</option>
+                                            <option>스캔시험 보고서</option>
+                                            <option>부하시험 보고서</option>
+                                            <option>요약 보고서</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-400 mb-2">보고서 언어</label>
+                                        <select class="input-dark w-full px-4 py-2 rounded-lg">
+                                            <option>한국어</option>
+                                            <option>English</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 포함할 시험 결과 -->
+                        <div class="card-dark rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">포함할 시험 결과</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-3 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">
+                                    <input type="checkbox" class="checkbox-dark" checked>
+                                    <div class="flex-1">
+                                        <p class="text-white">브릿지 네트워크 - 스캔시험</p>
+                                        <p class="text-xs text-gray-400">2024-03-15 14:30 완료</p>
+                                    </div>
+                                    <span class="px-2 py-1 bg-red-600 bg-opacity-20 text-red-400 rounded text-xs">Critical: 2</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">
+                                    <input type="checkbox" class="checkbox-dark" checked>
+                                    <div class="flex-1">
+                                        <p class="text-white">엔진제어 네트워크 - 스캔시험</p>
+                                        <p class="text-xs text-gray-400">2024-03-15 15:45 완료</p>
+                                    </div>
+                                    <span class="px-2 py-1 bg-orange-600 bg-opacity-20 text-orange-400 rounded text-xs">High: 3</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">
+                                    <input type="checkbox" class="checkbox-dark" checked>
+                                    <div class="flex-1">
+                                        <p class="text-white">엔진제어 네트워크 - 부하시험</p>
+                                        <p class="text-xs text-gray-400">2024-03-15 16:30 완료</p>
+                                    </div>
+                                    <span class="px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded text-xs">정상</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">
+                                    <input type="checkbox" class="checkbox-dark">
+                                    <div class="flex-1">
+                                        <p class="text-white">화물제어 네트워크 - 스캔시험</p>
+                                        <p class="text-xs text-gray-400">2024-03-14 10:20 완료</p>
+                                    </div>
+                                    <span class="px-2 py-1 bg-yellow-600 bg-opacity-20 text-yellow-400 rounded text-xs">Medium: 5</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 보고서 옵션 -->
+                        <div class="card-dark rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">보고서 옵션</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" class="checkbox-dark" checked>
+                                    <span class="text-gray-300">요약 페이지 포함</span>
+                                </label>
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" class="checkbox-dark" checked>
+                                    <span class="text-gray-300">상세 취약점 정보 포함</span>
+                                </label>
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" class="checkbox-dark" checked>
+                                    <span class="text-gray-300">권고사항 포함</span>
+                                </label>
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" class="checkbox-dark">
+                                    <span class="text-gray-300">네트워크 토폴로지 다이어그램 포함</span>
+                                </label>
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" class="checkbox-dark">
+                                    <span class="text-gray-300">기술적 세부사항 포함</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 보고서 미리보기 -->
+                    <div class="space-y-6">
+                        <div class="card-dark rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">보고서 미리보기</h3>
+                            <div class="report-preview rounded-lg p-6 text-sm">
+                                <div class="text-center mb-4">
+                                    <h4 class="text-xl font-bold">사이버복원력 시험 보고서</h4>
+                                    <p class="text-gray-600">한라호</p>
+                                </div>
+                                <div class="border-t pt-4">
+                                    <p class="font-semibold mb-2">1. 요약</p>
+                                    <p class="text-xs text-gray-700 mb-3">총 3개 Zone 시험 완료</p>
+                                    <p class="font-semibold mb-2">2. 시험 결과</p>
+                                    <p class="text-xs text-gray-700 mb-1">• 브릿지 네트워크</p>
+                                    <p class="text-xs text-gray-700 mb-1">• 엔진제어 네트워크</p>
+                                    <p class="text-xs text-gray-700 mb-3">• 화물제어 네트워크</p>
+                                    <p class="font-semibold mb-2">3. 권고사항</p>
+                                    <p class="text-xs text-gray-700">...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 내보내기 옵션 -->
+                        <div class="card-dark rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">내보내기 형식</h3>
+                            <div class="space-y-2">
+                                <button class="w-full px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 flex items-center justify-between">
+                                    <span>PDF 문서</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                    </svg>
+                                </button>
+                                <button class="w-full px-4 py-3 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 flex items-center justify-between">
+                                    <span>Word 문서</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                        <path d="M10 12h4"></path>
+                                        <path d="M10 16h4"></path>
+                                    </svg>
+                                </button>
+                                <button class="w-full px-4 py-3 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 flex items-center justify-between">
+                                    <span>Excel 데이터</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                        <line x1="9" y1="3" x2="9" y2="21"></line>
+                                        <line x1="15" y1="3" x2="15" y2="21"></line>
+                                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                                        <line x1="3" y1="15" x2="21" y2="15"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 생성 버튼 -->
+                        <button class="w-full px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold">
+                            보고서 생성
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="enhanced-sidebar-app.js"></script>
+</body>
+</html>

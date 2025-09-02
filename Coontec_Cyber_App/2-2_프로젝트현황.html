@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 현황 - COONTEC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .app-window {
+            background: #1e1e2e;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar {
+            background: #27293d;
+            border-right: 1px solid #3a3c52;
+        }
+        .content-area {
+            background: #2b2d42;
+            overflow-y: auto;
+        }
+        .card-dark {
+            background: #27293d;
+            border: 1px solid #3a3c52;
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-window">
+        <!-- 타이틀 바 -->
+        <div class="bg-gray-900 h-10 flex items-center justify-between px-4 border-b border-gray-700">
+            <div class="flex items-center gap-3">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-gray-400 text-sm">COONTEC 사이버복원력 시험도구 v2.0 - 프로젝트 현황</span>
+            </div>
+        </div>
+
+        <div class="flex flex-1">
+            <!-- 사이드바 -->
+            <aside class="sidebar w-72 p-3 flex flex-col">
+                <!-- Content will be injected by enhanced-sidebar-app.js -->
+            </aside>
+
+            <!-- 메인 콘텐츠 -->
+            <main class="content-area flex-1 p-6">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">프로젝트 현황</h2>
+                    <p class="text-gray-400">전체 프로젝트 진행 상태를 확인합니다</p>
+                </div>
+
+                <!-- 전체 통계 -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+                    <div class="card-dark rounded-lg p-4 text-center">
+                        <p class="text-3xl font-bold text-white">12</p>
+                        <p class="text-sm text-gray-400">전체 프로젝트</p>
+                    </div>
+                    <div class="card-dark rounded-lg p-4 text-center">
+                        <p class="text-3xl font-bold text-green-400">5</p>
+                        <p class="text-sm text-gray-400">진행중</p>
+                    </div>
+                    <div class="card-dark rounded-lg p-4 text-center">
+                        <p class="text-3xl font-bold text-blue-400">3</p>
+                        <p class="text-sm text-gray-400">대기중</p>
+                    </div>
+                    <div class="card-dark rounded-lg p-4 text-center">
+                        <p class="text-3xl font-bold text-yellow-400">2</p>
+                        <p class="text-sm text-gray-400">검토중</p>
+                    </div>
+                    <div class="card-dark rounded-lg p-4 text-center">
+                        <p class="text-3xl font-bold text-gray-400">2</p>
+                        <p class="text-sm text-gray-400">완료</p>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 목록 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- 진행중 프로젝트 -->
+                    <div class="card-dark rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            진행중 프로젝트
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-white font-medium">한라호 사이버복원력 인증</h4>
+                                    <span class="text-xs px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded">65%</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-2">현대중공업 | IMO: 9876543</p>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <div class="flex justify-between mt-2 text-xs text-gray-500">
+                                    <span>시작: 2024-02-01</span>
+                                    <span>예정: 2024-04-30</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-white font-medium">백두산호 사이버복원력 인증</h4>
+                                    <span class="text-xs px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded">45%</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-2">대우조선해양 | IMO: 9876544</p>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 45%"></div>
+                                </div>
+                                <div class="flex justify-between mt-2 text-xs text-gray-500">
+                                    <span>시작: 2024-02-15</span>
+                                    <span>예정: 2024-05-15</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-white font-medium">금강산호 사이버복원력 인증</h4>
+                                    <span class="text-xs px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded">30%</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-2">삼성중공업 | IMO: 9876545</p>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 30%"></div>
+                                </div>
+                                <div class="flex justify-between mt-2 text-xs text-gray-500">
+                                    <span>시작: 2024-03-01</span>
+                                    <span>예정: 2024-06-01</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 대기/검토중 프로젝트 -->
+                    <div class="card-dark rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                            대기/검토중 프로젝트
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-white font-medium">독도호 사이버복원력 인증</h4>
+                                    <span class="text-xs px-2 py-1 bg-blue-600 bg-opacity-20 text-blue-400 rounded">대기중</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-2">한화오션 | IMO: 9876546</p>
+                                <div class="flex justify-between mt-2 text-xs text-gray-500">
+                                    <span>예정 시작: 2024-04-01</span>
+                                    <span>담당: 김현대</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-white font-medium">울릉호 사이버복원력 인증</h4>
+                                    <span class="text-xs px-2 py-1 bg-yellow-600 bg-opacity-20 text-yellow-400 rounded">검토중</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-2">STX조선 | IMO: 9876547</p>
+                                <div class="flex justify-between mt-2 text-xs text-gray-500">
+                                    <span>검토 요청: 2024-03-10</span>
+                                    <span>담당: 박대우</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-white font-medium">제주호 사이버복원력 인증</h4>
+                                    <span class="text-xs px-2 py-1 bg-blue-600 bg-opacity-20 text-blue-400 rounded">대기중</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-2">현대중공업 | IMO: 9876548</p>
+                                <div class="flex justify-between mt-2 text-xs text-gray-500">
+                                    <span>예정 시작: 2024-05-01</span>
+                                    <span>담당: 미정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 월별 프로젝트 일정 -->
+                <div class="card-dark rounded-lg p-6 mt-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">2024년 프로젝트 일정</h3>
+                    <div class="overflow-x-auto">
+                        <div class="min-w-[800px]">
+                            <div class="grid grid-cols-12 gap-2 text-xs text-gray-400 mb-2">
+                                <div>1월</div>
+                                <div>2월</div>
+                                <div>3월</div>
+                                <div>4월</div>
+                                <div>5월</div>
+                                <div>6월</div>
+                                <div>7월</div>
+                                <div>8월</div>
+                                <div>9월</div>
+                                <div>10월</div>
+                                <div>11월</div>
+                                <div>12월</div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="relative h-8">
+                                    <div class="absolute bg-green-500 bg-opacity-30 border border-green-500 rounded h-full" style="left: 8.33%; width: 25%;">
+                                        <span class="text-xs text-white px-1">한라호</span>
+                                    </div>
+                                </div>
+                                <div class="relative h-8">
+                                    <div class="absolute bg-green-500 bg-opacity-30 border border-green-500 rounded h-full" style="left: 12.5%; width: 25%;">
+                                        <span class="text-xs text-white px-1">백두산호</span>
+                                    </div>
+                                </div>
+                                <div class="relative h-8">
+                                    <div class="absolute bg-green-500 bg-opacity-30 border border-green-500 rounded h-full" style="left: 16.66%; width: 25%;">
+                                        <span class="text-xs text-white px-1">금강산호</span>
+                                    </div>
+                                </div>
+                                <div class="relative h-8">
+                                    <div class="absolute bg-blue-500 bg-opacity-30 border border-blue-500 rounded h-full" style="left: 25%; width: 25%;">
+                                        <span class="text-xs text-white px-1">독도호</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="enhanced-sidebar-app.js"></script>
+</body>
+</html>

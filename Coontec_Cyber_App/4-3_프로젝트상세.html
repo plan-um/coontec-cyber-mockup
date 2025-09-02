@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 상세 - COONTEC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .app-window {
+            background: #1e1e2e;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar {
+            background: #27293d;
+            border-right: 1px solid #3a3c52;
+        }
+        .content-area {
+            background: #2b2d42;
+            overflow-y: auto;
+        }
+        .card-dark {
+            background: #27293d;
+            border: 1px solid #3a3c52;
+        }
+        .input-dark {
+            background: #1e1e2e;
+            border: 1px solid #3a3c52;
+            color: white;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-window">
+        <!-- 타이틀 바 -->
+        <div class="bg-gray-900 h-10 flex items-center justify-between px-4 border-b border-gray-700">
+            <div class="flex items-center gap-3">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-gray-400 text-sm">COONTEC 사이버복원력 시험도구 v2.0 - 프로젝트 상세</span>
+            </div>
+        </div>
+
+        <div class="flex flex-1">
+            <!-- 사이드바 -->
+            <aside class="sidebar w-72 p-3 flex flex-col">
+                <!-- Content will be injected by enhanced-sidebar-app.js -->
+            </aside>
+
+            <!-- 메인 콘텐츠 -->
+            <main class="content-area flex-1 p-6">
+                <!-- 헤더 -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-bold text-white">한라호 사이버복원력 인증 프로젝트</h2>
+                        <div class="flex gap-2">
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-2">
+                                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                </svg>
+                                편집
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                    <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                </svg>
+                                보고서
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 text-sm text-gray-400">
+                        <span class="flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 10.189V14"></path>
+                                <path d="M12 2v3"></path>
+                                <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"></path>
+                            </svg>
+                            현대중공업
+                        </span>
+                        <span>IMO: 9876543</span>
+                        <span class="px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded text-xs">진행중</span>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 개요 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <div class="lg:col-span-2">
+                        <div class="card-dark rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">프로젝트 정보</h3>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-gray-500 mb-1">프로젝트명</p>
+                                    <p class="text-white">한라호 사이버복원력 인증</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 mb-1">선박명</p>
+                                    <p class="text-white">한라호 (HALLA)</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 mb-1">선종</p>
+                                    <p class="text-white">컨테이너선</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 mb-1">선급</p>
+                                    <p class="text-white">한국선급 (KR)</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 mb-1">조선소</p>
+                                    <p class="text-white">현대중공업</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 mb-1">담당자</p>
+                                    <p class="text-white">김현대 (PM)</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 mb-1">시작일</p>
+                                    <p class="text-white">2024-02-01</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 mb-1">완료 예정일</p>
+                                    <p class="text-white">2024-04-30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 진행 상태 -->
+                    <div class="card-dark rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">진행 상태</h3>
+                        <div class="flex justify-center mb-4">
+                            <div class="relative w-32 h-32">
+                                <svg class="w-32 h-32 transform -rotate-90">
+                                    <circle cx="64" cy="64" r="56" stroke="#3a3c52" stroke-width="12" fill="none"></circle>
+                                    <circle cx="64" cy="64" r="56" stroke="#667eea" stroke-width="12" fill="none" stroke-dasharray="351.86" stroke-dashoffset="123.15"></circle>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-3xl font-bold text-white">65%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">완료된 Zone</span>
+                                <span class="text-white">2 / 3</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">완료된 시험</span>
+                                <span class="text-white">4 / 6</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">발견된 취약점</span>
+                                <span class="text-yellow-400">15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 네트워크 Zone 목록 -->
+                <div class="card-dark rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">네트워크 Zone 관리</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gray-800 rounded-lg p-4 border border-green-500 border-opacity-50">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-white font-medium">브릿지 네트워크</h4>
+                                <span class="px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded text-xs">완료</span>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">IP 대역</span>
+                                    <span class="text-gray-300">192.168.1.0/24</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">장비 수</span>
+                                    <span class="text-gray-300">15</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">스캔시험</span>
+                                    <span class="text-green-400">완료</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">부하시험</span>
+                                    <span class="text-green-400">완료</span>
+                                </div>
+                            </div>
+                            <button class="w-full mt-3 px-3 py-2 bg-gray-700 text-white rounded text-sm hover:bg-gray-600">
+                                결과 보기
+                            </button>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-lg p-4 border border-blue-500 border-opacity-50">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-white font-medium">엔진제어 네트워크</h4>
+                                <span class="px-2 py-1 bg-blue-600 bg-opacity-20 text-blue-400 rounded text-xs">진행중</span>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">IP 대역</span>
+                                    <span class="text-gray-300">192.168.2.0/24</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">장비 수</span>
+                                    <span class="text-gray-300">12</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">스캔시험</span>
+                                    <span class="text-green-400">완료</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">부하시험</span>
+                                    <span class="text-blue-400">진행중</span>
+                                </div>
+                            </div>
+                            <button class="w-full mt-3 px-3 py-2 bg-purple-600 text-white rounded text-sm hover:bg-purple-700">
+                                시험 실행
+                            </button>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-white font-medium">화물제어 네트워크</h4>
+                                <span class="px-2 py-1 bg-gray-600 bg-opacity-20 text-gray-400 rounded text-xs">대기</span>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">IP 대역</span>
+                                    <span class="text-gray-300">192.168.3.0/24</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">장비 수</span>
+                                    <span class="text-gray-300">8</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">스캔시험</span>
+                                    <span class="text-gray-400">대기</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">부하시험</span>
+                                    <span class="text-gray-400">대기</span>
+                                </div>
+                            </div>
+                            <button class="w-full mt-3 px-3 py-2 bg-gray-700 text-white rounded text-sm hover:bg-gray-600">
+                                시험 시작
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 최근 활동 -->
+                <div class="card-dark rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">최근 활동</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-green-400 rounded-full mt-1.5"></div>
+                            <div class="flex-1">
+                                <p class="text-sm text-white">엔진제어 네트워크 부하시험 시작</p>
+                                <p class="text-xs text-gray-500">2024-03-15 14:45 - 김현대</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-blue-400 rounded-full mt-1.5"></div>
+                            <div class="flex-1">
+                                <p class="text-sm text-white">엔진제어 네트워크 스캔시험 완료</p>
+                                <p class="text-xs text-gray-500">2024-03-15 13:30 - 김현대</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-purple-400 rounded-full mt-1.5"></div>
+                            <div class="flex-1">
+                                <p class="text-sm text-white">브릿지 네트워크 보고서 생성</p>
+                                <p class="text-xs text-gray-500">2024-03-14 16:20 - 시스템</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="enhanced-sidebar-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿤텍 사이버 복원력 | 사용자 시나리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Pretendard', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">사용자 시나리오</h1>
+            <p class="mt-3 text-lg text-slate-600">쿤텍 사이버 복원력 서비스의 주요 사용자 흐름</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 웹 시나리오 -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                        <i data-lucide="globe" class="h-4 w-4"></i>
+                        웹화면
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">신규 고객사 담당자 가입 및 로그인</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="user-plus" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>회원가입 페이지에서 정보를 입력하고 가입을 완료합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="log-in" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>로그인 페이지에서 계정 정보로 시스템에 접속합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="layout-dashboard" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>메인 대시보드에서 서비스 전체 현황을 한눈에 파악합니다.</span></li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                        <i data-lucide="globe" class="h-4 w-4"></i>
+                        웹화면
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">관리자의 신규 프로젝트 생성 및 시험 준비</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="folder-plus" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>통합 프로젝트 메뉴에서 새 프로젝트 생성을 시작합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="ship" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>선박 정보를 입력하거나 NBM 연동으로 프로젝트를 생성합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="network" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>'관리영역(Zone)' 설정에서 시험 대상 IP 범위를 지정합니다.</span></li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                        <i data-lucide="globe" class="h-4 w-4"></i>
+                        웹화면
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">운영자의 스캔시험 설정 및 결과 확인</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="scan-search" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>스캔시험 메뉴에서 대상 Zone을 선택하고 시험 설정을 시작합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="play-circle" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>스캔 옵션을 지정하고 시험을 실행합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="file-text" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>완료 후 결과 페이지에서 취약점을 분석하고 CSV로 내보냅니다.</span></li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                        <i data-lucide="globe" class="h-4 w-4"></i>
+                        웹화면
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">관리자의 라이선스 발급 및 할당</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="file-key-2" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>라이선스 관리 메뉴에서 신규 라이선스를 발급합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="check-check" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>요청/할당 메뉴에서 라이선스 요청을 승인 처리합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="user-check" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>'사용자 할당' 기능으로 실무자에게 라이선스를 배정합니다.</span></li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                        <i data-lucide="globe" class="h-4 w-4"></i>
+                        웹화면
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">시스템 관리자의 사용자 활동 로그 감사</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="history" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>감사/로그 메뉴로 이동하여 사용자 활동을 추적합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="filter" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>기간이나 활동 유형별로 로그를 필터링하여 조회합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="download" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-blue-500"></i><span>주요 활동 내역을 확인하고 필요시 CSV로 다운로드합니다.</span></li>
+                </ol>
+            </div>
+
+            <!-- 앱 시나리오 -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
+                        <i data-lucide="smartphone" class="h-4 w-4"></i>
+                        어플리케이션
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">현장 엔지니어의 오프라인 로그인 및 인증</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="smartphone-key" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>앱을 실행하고 ID/PW 또는 생체인증으로 로그인합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="qr-code" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>라이선스 관리에서 '오프라인 인증'을 선택합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>인증코드를 QR 스캔 또는 수동 입력하여 라이선스를 활성화합니다.</span></li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
+                        <i data-lucide="smartphone" class="h-4 w-4"></i>
+                        어플리케이션
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">현장 엔지니어의 프로젝트 생성 및 Zone 설정</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="folder-plus" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>프로젝트 관리에서 새 프로젝트 생성을 시작합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="edit-3" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>선박 정보를 수동으로 입력하여 프로젝트를 만듭니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="network" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>생성된 프로젝트의 '네트워크 존'에서 시험할 IP 대역을 설정합니다.</span></li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
+                        <i data-lucide="smartphone" class="h-4 w-4"></i>
+                        어플리케이션
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">현장 엔지니어의 부하시험 및 사설 보고서 생성</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="server-cog" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>네트워크 존에서 '부하시험'을 선택하고 설정을 지정합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="activity" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>시험을 실행하고 결과(성공/실패, 응답시간)를 분석합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="printer" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>'사설 보고서' 기능으로 현장에서 즉시 PDF 보고서를 생성합니다.</span></li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
+                        <i data-lucide="smartphone" class="h-4 w-4"></i>
+                        어플리케이션
+                    </span>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-3">현장 엔지니어의 시험 데이터 백업</h3>
+                <ol class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start"><i data-lucide="database-backup" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>데이터 관리의 '백업/복구' 메뉴로 이동합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="upload-cloud" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>'백업 실행'을 선택하고 데이터 범위와 옵션을 지정합니다.</span></li>
+                    <li class="flex items-start"><i data-lucide="loader-circle" class="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-green-500"></i><span>백업을 시작하고 완료될 때까지 진행 상황을 확인합니다.</span></li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

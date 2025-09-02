@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico?favicon.45db1c09.ico" sizes="256x256" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .text-primary-600 { color: #2563eb; }
+  .bg-primary-600 { background-color: #2563eb; }
+  .hover\:text-primary-600:hover { color: #2563eb; }
+  .hover\:bg-primary-700:hover { background-color: #1d4ed8; }
+  .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .radio-item { display: flex; align-items: center; padding: 0.5rem 1rem; }
+</style>
+</head><body class="inter_59dee874-module__9CtR0q__className"><div hidden=""><!--/$--></div><div class="min-h-screen flex flex-col"><header class="w-full border-b bg-white"><div class="flex h-16 items-center px-4"><div class="flex items-center gap-6"><button class="md:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button><a class="flex items-center gap-2" href="2-1_메인대시보드(관리자).html"><span class="text-xl font-bold text-primary-600">COONTEC</span></a><nav class="hidden md:flex items-center gap-6"><a class="text-sm font-medium hover:text-primary-600" href="2-1_메인대시보드(관리자).html">대시보드</a><a class="text-sm font-medium hover:text-primary-600" href="4-1_통합프로젝트.html">프로젝트 & 시험</a></nav></div><div class="ml-auto flex items-center gap-4"><div class="relative"><button class="flex items-center gap-1 text-sm hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>한국어</span></button></div><a class="relative hover:text-primary-600" href="13-1_알림.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-5 w-5" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span class="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span></a><div class="relative"><button class="flex items-center gap-2 hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="text-sm">관리자</span></button></div></div></div></header>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white shadow-sm h-screen fixed lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-200 ease-in-out lg:transition-none z-30">
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto lg:ml-0">
+            <div class="p-6">
+                <!-- Breadcrumb -->
+                <nav class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+                    <a href="10-7_고객사관리.html" class="hover:text-primary-600">고객사 관리</a>
+                    <i class="fas fa-chevron-right text-xs"></i>
+                    <span class="text-gray-900">고객사 상세</span>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">고객사 상세 정보</h1>
+                            <p class="text-gray-600 mt-1">고객사의 상세 정보와 계약, 라이선스 현황을 확인합니다.</p>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 flex items-center space-x-2">
+                                <i class="fas fa-edit"></i>
+                                <span>수정</span>
+                            </button>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 flex items-center space-x-2">
+                                <i class="fas fa-trash"></i>
+                                <span>삭제</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Summary -->
+                <div class="bg-white rounded-lg shadow-sm border p-6 mb-6">
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="h-20 w-20 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-building text-blue-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h2 class="text-xl font-semibold text-gray-900">한국해운</h2>
+                                    <p class="text-gray-600">Korea Shipping Co.</p>
+                                </div>
+                                <span class="inline-flex px-3 py-1 text-sm font-semibold bg-green-100 text-green-800 rounded-full">활성</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 mb-2">기본 정보</h3>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-industry w-4 h-4 mr-2 text-gray-400"></i>
+                                            <span>해운업</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-id-card w-4 h-4 mr-2 text-gray-400"></i>
+                                            <span>123-45-67890</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-phone w-4 h-4 mr-2 text-gray-400"></i>
+                                            <span>02-1234-5678</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 mb-2">계약 정보</h3>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-handshake w-4 h-4 mr-2 text-gray-400"></i>
+                                            <span>정기계약</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-calendar w-4 h-4 mr-2 text-gray-400"></i>
+                                            <span>2024.01.15 ~ 2025.01.14</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-won-sign w-4 h-4 mr-2 text-gray-400"></i>
+                                            <span>월 500만원</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 mb-2">현황</h3>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span>등록 선박:</span>
+                                            <span class="font-medium">8척</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span>진행 중인 시험:</span>
+                                            <span class="font-medium">3건</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span>완료된 시험:</span>
+                                            <span class="font-medium">45건</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="bg-white rounded-lg shadow-sm border">
+                    <div class="border-b border-gray-200">
+                        <nav class="flex space-x-8 px-6" aria-label="Tabs">
+                            <button class="tab-button active py-4 px-1 border-b-2 border-transparent font-medium text-sm hover:text-gray-700 hover:border-gray-300" data-tab="info">
+                                기본 정보
+                            </button>
+                            <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="contracts">
+                                계약 관리
+                            </button>
+                            <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="ships">
+                                선박 목록
+                            </button>
+                            <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="licenses">
+                                라이선스
+                            </button>
+                        </nav>
+                    </div>
+
+                    <!-- Info Tab -->
+                    <div id="info" class="tab-content active p-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">회사 정보</h3>
+                                <div class="space-y-4">
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">회사명 (한글)</span>
+                                        <span class="col-span-2 text-sm text-gray-900">한국해운</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">회사명 (영문)</span>
+                                        <span class="col-span-2 text-sm text-gray-900">Korea Shipping Co.</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">사업자등록번호</span>
+                                        <span class="col-span-2 text-sm text-gray-900">123-45-67890</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">업종</span>
+                                        <span class="col-span-2 text-sm text-gray-900">해운업</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">주소</span>
+                                        <span class="col-span-2 text-sm text-gray-900">부산광역시 해운대구 해운대로 123</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">대표 전화번호</span>
+                                        <span class="col-span-2 text-sm text-gray-900">02-1234-5678</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">웹사이트</span>
+                                        <span class="col-span-2 text-sm text-gray-900">www.korship.co.kr</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">담당자 정보</h3>
+                                <div class="space-y-4">
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">담당자명</span>
+                                        <span class="col-span-2 text-sm text-gray-900">김해운</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">직급/직책</span>
+                                        <span class="col-span-2 text-sm text-gray-900">해운팀장</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">부서</span>
+                                        <span class="col-span-2 text-sm text-gray-900">운영팀</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">이메일</span>
+                                        <span class="col-span-2 text-sm text-gray-900">kim@korship.co.kr</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">휴대폰</span>
+                                        <span class="col-span-2 text-sm text-gray-900">010-1234-5678</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <span class="text-sm font-medium text-gray-700">사무실 전화</span>
+                                        <span class="col-span-2 text-sm text-gray-900">051-1234-5678</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contracts Tab -->
+                    <div id="contracts" class="tab-content p-6">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">계약 관리</h3>
+                            <p class="text-sm text-gray-600">고객사의 계약 정보와 이력을 관리합니다.</p>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">계약번호</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">계약유형</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">계약기간</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">계약금액</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">상태</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">작업</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CT-2024-001</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">정기계약</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024.01.15 ~ 2025.01.14</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">월 500만원</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">활성</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary-600 hover:text-primary-900 mr-3">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-900">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">CT-2023-012</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">정기계약</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2023.01.15 ~ 2024.01.14</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">월 400만원</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex px-2 py-1 text-xs font-semibold bg-gray-100 text-gray-800 rounded-full">완료</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary-600 hover:text-primary-900">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Ships Tab -->
+                    <div id="ships" class="tab-content p-6">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">등록 선박 목록</h3>
+                            <p class="text-sm text-gray-600">고객사에서 보유한 선박 목록입니다.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="text-sm font-medium text-gray-900">한라호</h4>
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">활성</span>
+                                </div>
+                                <div class="space-y-2 text-sm text-gray-600">
+                                    <div class="flex justify-between">
+                                        <span>IMO 번호:</span>
+                                        <span>9876543</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>선박 유형:</span>
+                                        <span>컨테이너선</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>등록일:</span>
+                                        <span>2024-01-20</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="text-sm font-medium text-gray-900">백두산호</h4>
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">활성</span>
+                                </div>
+                                <div class="space-y-2 text-sm text-gray-600">
+                                    <div class="flex justify-between">
+                                        <span>IMO 번호:</span>
+                                        <span>9876544</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>선박 유형:</span>
+                                        <span>벌크선</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>등록일:</span>
+                                        <span>2024-02-15</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="text-sm font-medium text-gray-900">독도호</h4>
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">점검중</span>
+                                </div>
+                                <div class="space-y-2 text-sm text-gray-600">
+                                    <div class="flex justify-between">
+                                        <span>IMO 번호:</span>
+                                        <span>9876545</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>선박 유형:</span>
+                                        <span>탱커선</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>등록일:</span>
+                                        <span>2024-03-10</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Licenses Tab -->
+                    <div id="licenses" class="tab-content p-6">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">라이선스 현황</h3>
+                            <p class="text-sm text-gray-600">고객사의 라이선스 발급 및 사용 현황입니다.</p>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">라이선스 번호</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">선박명</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">발급일</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">만료일</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">상태</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">작업</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">LIC-2024-001</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">한라호</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-01-20</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-01-19</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">활성</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary-600 hover:text-primary-900 mr-3">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <button class="text-blue-600 hover:text-blue-900">
+                                                <i class="fas fa-sync"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">LIC-2024-002</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">백두산호</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-02-15</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-02-14</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">활성</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary-600 hover:text-primary-900 mr-3">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <button class="text-blue-600 hover:text-blue-900">
+                                                <i class="fas fa-sync"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">LIC-2024-003</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">독도호</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-03-10</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-03-09</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">갱신 필요</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-orange-600 hover:text-orange-900 mr-3">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                            </button>
+                                            <button class="text-blue-600 hover:text-blue-900">
+                                                <i class="fas fa-sync"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Sidebar toggle functionality
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('-translate-x-full');
+                });
+            }
+        });
+    </script>
+</main></div></div><title>COONTEC 사이버복원력 시험도구</title><meta name="description" content="선박 사이버복원력 인증 통합 관리 시스템">
+
+</body></html>
+<script src="enhanced-sidebar.js"></script>
+</body></html>

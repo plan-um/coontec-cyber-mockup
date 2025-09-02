@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COONTEC 사이버복원력 시험도구</title>
+  <link rel="icon" href="/favicon.ico?favicon.45db1c09.ico" sizes="256x256" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .text-primary-600 { color: #2563eb; }
+    .bg-primary-600 { background-color: #2563eb; }
+    .hover\:text-primary-600:hover { color: #2563eb; }
+    .hover\:bg-primary-700:hover { background-color: #1d4ed8; }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .radio-item { display: flex; align-items: center; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="w-full border-b bg-white">
+      <div class="flex h-16 items-center px-4">
+        <div class="flex items-center gap-6">
+          <button class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6">
+              <path d="M4 12h16"></path>
+              <path d="M4 18h16"></path>
+              <path d="M4 6h16"></path>
+            </svg>
+          </button>
+          <a class="flex items-center gap-2" href="2-1_대시보드.html">
+            <span class="text-xl font-bold text-primary-600">COONTEC</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-sm font-medium hover:text-primary-600" href="2-1_대시보드.html">대시보드</a>
+            <a class="text-sm font-medium hover:text-primary-600" href="4-1_통합프로젝트.html">프로젝트 & 시험</a>
+          </nav>
+        </div>
+        <div class="ml-auto flex items-center gap-4">
+          <div class="relative">
+            <button class="flex items-center gap-1 text-sm hover:text-primary-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+              <span>한국어</span>
+            </button>
+          </div>
+          <a class="relative hover:text-primary-600" href="13-1_알림.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-5 w-5">
+              <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
+              <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
+            </svg>
+            <span class="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span>
+          </a>
+          <div class="relative">
+            <button class="flex items-center gap-2 hover:text-primary-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <aside class="hidden md:flex w-72 flex-col border-r bg-gray-50">
+        <!-- 사이드바는 enhanced-sidebar.js가 동적으로 생성 -->
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-6 bg-gray-50">
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900">운영 로그</h1>
+            <p class="text-gray-600 mt-2">시스템 운영 로그 관리</p>
+          </div>
+          
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b">
+              <div class="flex items-center justify-between">
+                <h2 class="text-lg font-semibold">운영 로그</h2>
+                <div class="flex items-center gap-3">
+                  <select class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                    <option>전체 레벨</option>
+                    <option>ERROR</option>
+                    <option>WARN</option>
+                    <option>INFO</option>
+                    <option>DEBUG</option>
+                  </select>
+                  <input type="text" placeholder="검색..." 
+                         class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                  <button class="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 text-sm">
+                    필터
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="p-6">
+              <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-xs overflow-x-auto h-96 overflow-y-auto">
+                <pre>[2024-03-17 10:45:23.456] [INFO] Application started successfully
+[2024-03-17 10:45:24.123] [INFO] Database connection established
+[2024-03-17 10:45:24.567] [INFO] Loading configuration from /etc/coontec/config.yml
+[2024-03-17 10:45:25.234] [INFO] Starting HTTP server on port 3000
+[2024-03-17 10:45:25.789] [INFO] Server listening on http://0.0.0.0:3000
+[2024-03-17 10:45:30.123] [INFO] User authentication successful: kim@coontec.com
+[2024-03-17 10:45:35.456] [INFO] Starting scan test for vessel: Halla-ho
+[2024-03-17 10:45:36.789] [DEBUG] Initializing network scanner module
+[2024-03-17 10:45:37.012] [DEBUG] Discovering hosts in subnet 192.168.1.0/24
+[2024-03-17 10:45:45.345] [INFO] Found 45 active hosts
+[2024-03-17 10:45:50.678] [WARN] High CPU usage detected: 85%
+[2024-03-17 10:45:55.901] [INFO] Starting vulnerability scan
+[2024-03-17 10:46:10.234] [ERROR] Failed to connect to host 192.168.1.105: Connection timeout
+[2024-03-17 10:46:10.567] [ERROR] Stack trace:
+    at Scanner.connect (/app/scanner.js:145:15)
+    at async Scanner.scan (/app/scanner.js:78:9)
+    at async TestRunner.run (/app/test-runner.js:234:12)
+[2024-03-17 10:46:11.890] [INFO] Retrying connection to 192.168.1.105
+[2024-03-17 10:46:12.123] [INFO] Connection successful on retry
+[2024-03-17 10:46:15.456] [INFO] Scan completed: 15 vulnerabilities found
+[2024-03-17 10:46:20.789] [INFO] Generating report for scan ID: SCAN-2024-0317-001
+[2024-03-17 10:46:25.012] [INFO] Report generated successfully
+[2024-03-17 10:46:30.345] [INFO] Backup process initiated
+[2024-03-17 10:46:35.678] [DEBUG] Backing up database...
+[2024-03-17 10:46:40.901] [DEBUG] Backing up test data...
+[2024-03-17 10:46:45.234] [INFO] Backup completed successfully
+[2024-03-17 10:46:50.567] [WARN] Low disk space warning: 15% remaining
+[2024-03-17 10:46:55.890] [INFO] Cleaning up temporary files
+[2024-03-17 10:47:00.123] [INFO] Cleanup completed, freed 2.3 GB</pre>
+              </div>
+            </div>
+            
+            <div class="p-4 border-t">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <button class="px-3 py-1.5 bg-red-600 text-white rounded text-sm hover:bg-red-700">
+                    로그 지우기
+                  </button>
+                  <button class="px-3 py-1.5 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                    다운로드
+                  </button>
+                </div>
+                <div class="text-sm text-gray-600">
+                  자동 새로고침: <span class="font-medium">5초</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-semibold mb-4">로그 레벨 통계</h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span class="text-sm">ERROR</span>
+                </div>
+                <span class="font-medium">23</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <span class="text-sm">WARN</span>
+                </div>
+                <span class="font-medium">45</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span class="text-sm">INFO</span>
+                </div>
+                <span class="font-medium">892</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
+                  <span class="text-sm">DEBUG</span>
+                </div>
+                <span class="font-medium">1,543</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-semibold mb-4">실시간 모니터링</h3>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-600">CPU 사용률</span>
+                <span class="font-medium">42%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-green-600 h-2 rounded-full" style="width: 42%"></div>
+              </div>
+              
+              <div class="flex justify-between items-center mt-4">
+                <span class="text-sm text-gray-600">메모리 사용률</span>
+                <span class="font-medium">68%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-yellow-600 h-2 rounded-full" style="width: 68%"></div>
+              </div>
+              
+              <div class="flex justify-between items-center mt-4">
+                <span class="text-sm text-gray-600">디스크 사용률</span>
+                <span class="font-medium">85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-red-600 h-2 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="enhanced-sidebar.js"></script>
+</body>
+</html>

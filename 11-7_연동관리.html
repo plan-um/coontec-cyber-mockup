@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico?favicon.45db1c09.ico" sizes="256x256" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .text-primary-600 { color: #2563eb; }
+  .bg-primary-600 { background-color: #2563eb; }
+  .hover\:text-primary-600:hover { color: #2563eb; }
+  .hover\:bg-primary-700:hover { background-color: #1d4ed8; }
+  .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .radio-item { display: flex; align-items: center; padding: 0.5rem 1rem; }
+</style>
+</head><body class="inter_59dee874-module__9CtR0q__className"><div hidden=""><!--/$--></div><div class="min-h-screen flex flex-col"><header class="w-full border-b bg-white"><div class="flex h-16 items-center px-4"><div class="flex items-center gap-6"><button class="md:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button><a class="flex items-center gap-2" href="2-1_메인대시보드(관리자).html"><span class="text-xl font-bold text-primary-600">COONTEC</span></a><nav class="hidden md:flex items-center gap-6"><a class="text-sm font-medium hover:text-primary-600" href="2-1_메인대시보드(관리자).html">대시보드</a><a class="text-sm font-medium hover:text-primary-600" href="4-1_통합프로젝트.html">프로젝트 & 시험</a></nav></div><div class="ml-auto flex items-center gap-4"><div class="relative"><button class="flex items-center gap-1 text-sm hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>한국어</span></button></div><a class="relative hover:text-primary-600" href="13-1_알림.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-5 w-5" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span class="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span></a><div class="relative"><button class="flex items-center gap-2 hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="text-sm">관리자</span></button></div></div></div></header><div class="flex flex-1"><aside class="hidden md:flex w-72 flex-col border-r bg-gray-50"><nav class="flex-1 space-y-1 px-2 py-4"><a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700" href="2-1_메인대시보드(관리자).html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard h-4 w-4" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg><span>대시보드</span></a><a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700" href="4-1_통합프로젝트.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-open h-4 w-4" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"></path></svg><span>프로젝트 관리</span></a><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-search h-4 w-4" aria-hidden="true"><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"></path><path d="m9 18-1.5-1.5"></path><circle cx="5" cy="14" r="3"></circle></svg><span>시험 관리</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-4 w-4" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span>보고서</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card h-4 w-4" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg><span>라이선스</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-4 w-4" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg><span>사용자 관리</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 bg-gray-100 text-primary-600"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-4 w-4" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg><span>시스템 설정</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><div class="pl-11 space-y-1"><a class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md" href="11-1_시스템설정.html">시스템 설정</a><a class="block px-3 py-2 text-sm bg-gray-100 text-primary-600 rounded-md" href="11-7_연동관리.html">연동 관리</a></div></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-4 w-4" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg><span>감사/로그</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700" href="13-1_알림.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-4 w-4" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span>알림</span></a><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-question-mark h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg><span>도움말</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div></nav><div class="border-t p-4"><a class="flex items-center gap-2 text-sm text-gray-600 hover:text-primary-600" href="3-1_공지사항.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-4 w-4" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span>공지사항</span></a></div></aside><main class="flex-1 p-6 bg-gray-50"><div class="space-y-6">
+  <div>
+    <h1 class="text-3xl font-bold text-gray-900">연동 관리</h1>
+    <p class="text-gray-600 mt-2">외부 시스템과의 연동 설정을 관리합니다</p>
+  </div>
+
+  <!-- 연동 시스템 현황 -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="p-3 bg-blue-100 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link h-6 w-6 text-blue-600" aria-hidden="true">
+              <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+              <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
+              <line x1="8" x2="16" y1="12" y2="12"></line>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">NBM 플랫폼</h3>
+            <p class="text-sm text-gray-500">선박 정보 연동</p>
+          </div>
+        </div>
+        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">연결됨</span>
+      </div>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span class="text-gray-500">마지막 동기화</span>
+          <span class="text-gray-900">5분 전</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">연동 항목</span>
+          <span class="text-gray-900">15개</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="p-3 bg-green-100 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check h-6 w-6 text-green-600" aria-hidden="true">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">e-class SSO</h3>
+            <p class="text-sm text-gray-500">한국선급 인증</p>
+          </div>
+        </div>
+        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">활성</span>
+      </div>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span class="text-gray-500">인증 방식</span>
+          <span class="text-gray-900">OAuth 2.0</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">활성 세션</span>
+          <span class="text-gray-900">24개</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="p-3 bg-yellow-100 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key h-6 w-6 text-yellow-600" aria-hidden="true">
+              <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+              <path d="m21 2-9.6 9.6"></path>
+              <circle cx="7.5" cy="15.5" r="5.5"></circle>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">KR-DAON SSO</h3>
+            <p class="text-sm text-gray-500">고객사 인증</p>
+          </div>
+        </div>
+        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">비활성</span>
+      </div>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span class="text-gray-500">인증 방식</span>
+          <span class="text-gray-900">SAML 2.0</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">상태</span>
+          <span class="text-gray-900">설정 필요</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 연동 설정 탭 -->
+  <div class="bg-white rounded-lg shadow">
+    <div class="border-b">
+      <nav class="flex space-x-8 px-6" aria-label="Tabs">
+        <button class="border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600">NBM 연동</button>
+        <button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700">e-class SSO</button>
+        <button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700">KR-DAON SSO</button>
+        <button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700">API 연동</button>
+      </nav>
+    </div>
+
+    <!-- NBM 연동 설정 -->
+    <div class="p-6">
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">NBM 플랫폼 연동 설정</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">API 엔드포인트</label>
+            <input type="text" value="https://nbm.krs.co.kr/api/v2" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">API 키</label>
+            <div class="flex gap-2">
+              <input type="password" value="sk_live_xxxxxxxxxxxxxxxxxxx" class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <button class="px-4 py-2 border rounded-lg hover:bg-gray-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye" aria-hidden="true">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">동기화 주기</label>
+            <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="5">5분마다</option>
+              <option value="10">10분마다</option>
+              <option value="30">30분마다</option>
+              <option value="60">1시간마다</option>
+              <option value="manual">수동</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">타임아웃 (초)</label>
+            <input type="number" value="30" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- 연동 항목 설정 -->
+      <div class="mb-6">
+        <h4 class="text-md font-semibold text-gray-900 mb-4">연동 항목</h4>
+        <div class="space-y-3">
+          <label class="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" checked class="h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
+              <div>
+                <p class="font-medium text-gray-900">선박 기본 정보</p>
+                <p class="text-sm text-gray-500">선박명, IMO 번호, 선종, 톤수 등</p>
+              </div>
+            </div>
+            <span class="text-sm text-gray-500">필수</span>
+          </label>
+
+          <label class="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" checked class="h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
+              <div>
+                <p class="font-medium text-gray-900">네트워크 구성</p>
+                <p class="text-sm text-gray-500">네트워크 토폴로지, Zone 정보</p>
+              </div>
+            </div>
+            <span class="text-sm text-gray-500">선택</span>
+          </label>
+
+          <label class="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" checked class="h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
+              <div>
+                <p class="font-medium text-gray-900">장비 목록</p>
+                <p class="text-sm text-gray-500">OT/IT 장비 정보 및 설정</p>
+              </div>
+            </div>
+            <span class="text-sm text-gray-500">선택</span>
+          </label>
+
+          <label class="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" class="h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
+              <div>
+                <p class="font-medium text-gray-900">인증서 정보</p>
+                <p class="text-sm text-gray-500">사이버보안 인증서 현황</p>
+              </div>
+            </div>
+            <span class="text-sm text-gray-500">선택</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 연동 테스트 -->
+      <div class="mb-6">
+        <h4 class="text-md font-semibold text-gray-900 mb-4">연동 테스트</h4>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <p class="text-sm font-medium text-gray-900">마지막 테스트</p>
+              <p class="text-sm text-gray-500">2024-08-21 14:30:15</p>
+            </div>
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play" aria-hidden="true">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              연동 테스트
+            </button>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-green-600" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <path d="m9 11 3 3L22 4"></path>
+              </svg>
+              <span class="text-sm text-gray-700">API 연결 성공</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-green-600" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <path d="m9 11 3 3L22 4"></path>
+              </svg>
+              <span class="text-sm text-gray-700">인증 확인</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-green-600" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <path d="m9 11 3 3L22 4"></path>
+              </svg>
+              <span class="text-sm text-gray-700">데이터 동기화 가능</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 연동 로그 -->
+      <div>
+        <h4 class="text-md font-semibold text-gray-900 mb-4">최근 연동 로그</h4>
+        <div class="border rounded-lg overflow-hidden">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="text-left px-4 py-3 text-sm font-medium text-gray-900">시간</th>
+                <th class="text-left px-4 py-3 text-sm font-medium text-gray-900">작업</th>
+                <th class="text-left px-4 py-3 text-sm font-medium text-gray-900">상태</th>
+                <th class="text-left px-4 py-3 text-sm font-medium text-gray-900">메시지</th>
+                <th class="text-left px-4 py-3 text-sm font-medium text-gray-900">처리 시간</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              <tr>
+                <td class="px-4 py-3 text-sm text-gray-900">2024-08-21 15:45:00</td>
+                <td class="px-4 py-3 text-sm text-gray-900">선박 정보 동기화</td>
+                <td class="px-4 py-3">
+                  <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">성공</span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-900">15개 선박 정보 업데이트</td>
+                <td class="px-4 py-3 text-sm text-gray-500">1.2초</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-sm text-gray-900">2024-08-21 15:40:00</td>
+                <td class="px-4 py-3 text-sm text-gray-900">네트워크 구성 동기화</td>
+                <td class="px-4 py-3">
+                  <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">성공</span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-900">한라호 네트워크 정보 업데이트</td>
+                <td class="px-4 py-3 text-sm text-gray-500">0.8초</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-sm text-gray-900">2024-08-21 15:35:00</td>
+                <td class="px-4 py-3 text-sm text-gray-900">장비 목록 동기화</td>
+                <td class="px-4 py-3">
+                  <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded-full">경고</span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-900">일부 장비 정보 누락 (3개)</td>
+                <td class="px-4 py-3 text-sm text-gray-500">2.5초</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-sm text-gray-900">2024-08-21 15:30:00</td>
+                <td class="px-4 py-3 text-sm text-gray-900">선박 정보 동기화</td>
+                <td class="px-4 py-3">
+                  <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">성공</span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-900">변경사항 없음</td>
+                <td class="px-4 py-3 text-sm text-gray-500">0.5초</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 저장 버튼 -->
+      <div class="mt-6 flex justify-end gap-3">
+        <button class="px-4 py-2 border rounded-lg hover:bg-gray-50">초기화</button>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">설정 저장</button>
+      </div>
+    </div>
+  </div>
+</div></main></div></div><title>COONTEC 사이버복원력 시험도구</title><meta name="description" content="선박 사이버복원력 인증 통합 관리 시스템">
+
+<script src="enhanced-sidebar.js"></script>
+</body></html>

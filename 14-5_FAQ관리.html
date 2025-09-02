@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COONTEC 사이버복원력 시험도구 - FAQ 관리</title>
+  <link rel="icon" href="/favicon.ico?favicon.45db1c09.ico" sizes="256x256" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .text-primary-600 { color: #2563eb; }
+    .bg-primary-600 { background-color: #2563eb; }
+    .hover\:text-primary-600:hover { color: #2563eb; }
+    .hover\:bg-primary-700:hover { background-color: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="w-full border-b bg-white">
+      <div class="flex h-16 items-center px-4">
+        <div class="flex items-center gap-6">
+          <button class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6">
+              <path d="M4 12h16"></path>
+              <path d="M4 18h16"></path>
+              <path d="M4 6h16"></path>
+            </svg>
+          </button>
+          <a class="flex items-center gap-2" href="2-1_메인대시보드(관리자).html">
+            <span class="text-xl font-bold text-primary-600">COONTEC</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-sm font-medium hover:text-primary-600" href="2-1_메인대시보드(관리자).html">대시보드</a>
+            <a class="text-sm font-medium hover:text-primary-600" href="4-1_통합프로젝트.html">프로젝트 & 시험</a>
+          </nav>
+        </div>
+        <div class="ml-auto flex items-center gap-4">
+          <div class="relative">
+            <button class="flex items-center gap-1 text-sm hover:text-primary-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+              <span>한국어</span>
+            </button>
+          </div>
+          <a class="relative hover:text-primary-600" href="13-1_알림.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-5 w-5">
+              <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
+              <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
+            </svg>
+            <span class="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span>
+          </a>
+          <div class="relative">
+            <button class="flex items-center gap-2 hover:text-primary-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <aside class="hidden md:flex w-72 flex-col border-r bg-gray-50">
+        <!-- 사이드바는 enhanced-sidebar.js가 동적으로 생성 -->
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-6 bg-gray-50">
+        <div class="space-y-6">
+          <div class="flex justify-between items-center">
+            <div>
+              <h1 class="text-3xl font-bold text-gray-900">FAQ 관리</h1>
+              <p class="text-gray-600 mt-2">자주 묻는 질문 관리</p>
+            </div>
+            <button class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              새 FAQ 추가
+            </button>
+          </div>
+
+          <!-- FAQ List -->
+          <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b">
+              <div class="flex items-center justify-between">
+                <h2 class="text-lg font-semibold">FAQ 목록</h2>
+                <div class="flex items-center gap-3">
+                  <input type="text" placeholder="FAQ 검색..." 
+                         class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                  <select class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                    <option>전체 카테고리</option>
+                    <option>시스템 사용</option>
+                    <option>시험 관련</option>
+                    <option>라이선스</option>
+                    <option>기술 문제</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="space-y-4">
+                <div class="p-4 border rounded-lg hover:bg-gray-50">
+                  <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">시험 관련</span>
+                        <span class="text-xs text-gray-500">2024-03-15 수정</span>
+                      </div>
+                      <div class="font-medium">시험이 실패했을 때 어떻게 하나요?</div>
+                      <div class="text-sm text-gray-600 mt-2">시험 실패 시 로그를 확인하고 네트워크 연결을 점검하세요. 그 다음 시험 설정을 다시 확인하고 필요시 기술 지원팀에 문의하시기 바랍니다.</div>
+                    </div>
+                    <div class="flex gap-2 ml-4">
+                      <button class="px-3 py-1 text-blue-600 hover:text-blue-700 text-sm border border-blue-600 rounded hover:bg-blue-50">편집</button>
+                      <button class="px-3 py-1 text-red-600 hover:text-red-700 text-sm border border-red-600 rounded hover:bg-red-50">삭제</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 border rounded-lg hover:bg-gray-50">
+                  <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">라이선스</span>
+                        <span class="text-xs text-gray-500">2024-03-14 수정</span>
+                      </div>
+                      <div class="font-medium">라이선스가 만료되면 어떻게 되나요?</div>
+                      <div class="text-sm text-gray-600 mt-2">라이선스 만료 시 해당 도구를 사용할 수 없게 됩니다. 만료 30일 전부터 알림이 발송되니 미리 갱신하시기 바랍니다.</div>
+                    </div>
+                    <div class="flex gap-2 ml-4">
+                      <button class="px-3 py-1 text-blue-600 hover:text-blue-700 text-sm border border-blue-600 rounded hover:bg-blue-50">편집</button>
+                      <button class="px-3 py-1 text-red-600 hover:text-red-700 text-sm border border-red-600 rounded hover:bg-red-50">삭제</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 border rounded-lg hover:bg-gray-50">
+                  <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">시스템 사용</span>
+                        <span class="text-xs text-gray-500">2024-03-13 수정</span>
+                      </div>
+                      <div class="font-medium">보고서를 어떻게 내보내기 할 수 있나요?</div>
+                      <div class="text-sm text-gray-600 mt-2">보고서 메뉴에서 원하는 보고서를 선택한 후 우측 상단의 내보내기 버튼을 클릭하세요. PDF, Excel, Word 형식을 지원합니다.</div>
+                    </div>
+                    <div class="flex gap-2 ml-4">
+                      <button class="px-3 py-1 text-blue-600 hover:text-blue-700 text-sm border border-blue-600 rounded hover:bg-blue-50">편집</button>
+                      <button class="px-3 py-1 text-red-600 hover:text-red-700 text-sm border border-red-600 rounded hover:bg-red-50">삭제</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 border rounded-lg hover:bg-gray-50">
+                  <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">기술 문제</span>
+                        <span class="text-xs text-gray-500">2024-03-12 수정</span>
+                      </div>
+                      <div class="font-medium">데이터 백업은 어떻게 하나요?</div>
+                      <div class="text-sm text-gray-600 mt-2">데이터 관리 > 백업/복구 메뉴에서 백업을 수행할 수 있습니다. 자동 백업을 설정하면 주기적으로 백업이 수행됩니다.</div>
+                    </div>
+                    <div class="flex gap-2 ml-4">
+                      <button class="px-3 py-1 text-blue-600 hover:text-blue-700 text-sm border border-blue-600 rounded hover:bg-blue-50">편집</button>
+                      <button class="px-3 py-1 text-red-600 hover:text-red-700 text-sm border border-red-600 rounded hover:bg-red-50">삭제</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pagination -->
+              <div class="flex justify-between items-center mt-6">
+                <span class="text-sm text-gray-600">총 4개의 FAQ</span>
+                <div class="flex gap-1">
+                  <button class="px-3 py-1 border rounded hover:bg-gray-100">이전</button>
+                  <button class="px-3 py-1 bg-primary-600 text-white rounded">1</button>
+                  <button class="px-3 py-1 border rounded hover:bg-gray-100">다음</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="enhanced-sidebar.js"></script>
+</body>
+</html>

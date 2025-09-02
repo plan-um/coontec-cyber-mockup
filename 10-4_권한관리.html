@@ -1,0 +1,561 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico?favicon.45db1c09.ico" sizes="256x256" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .text-primary-600 { color: #2563eb; }
+  .bg-primary-600 { background-color: #2563eb; }
+  .hover\:text-primary-600:hover { color: #2563eb; }
+  .hover\:bg-primary-700:hover { background-color: #1d4ed8; }
+  .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .radio-item { display: flex; align-items: center; padding: 0.5rem 1rem; }
+</style>
+</head><body class="inter_59dee874-module__9CtR0q__className"><div hidden=""><!--/$--></div><div class="min-h-screen flex flex-col"><header class="w-full border-b bg-white"><div class="flex h-16 items-center px-4"><div class="flex items-center gap-6"><button class="md:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button><a class="flex items-center gap-2" href="2-1_메인대시보드(관리자).html"><span class="text-xl font-bold text-primary-600">COONTEC</span></a><nav class="hidden md:flex items-center gap-6"><a class="text-sm font-medium hover:text-primary-600" href="2-1_메인대시보드(관리자).html">대시보드</a><a class="text-sm font-medium hover:text-primary-600" href="4-1_통합프로젝트.html">프로젝트 & 시험</a></nav></div><div class="ml-auto flex items-center gap-4"><div class="relative"><button class="flex items-center gap-1 text-sm hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>한국어</span></button></div><a class="relative hover:text-primary-600" href="13-1_알림.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-5 w-5" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span class="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span></a><div class="relative"><button class="flex items-center gap-2 hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="text-sm">관리자</span></button></div></div></div></header>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white shadow-sm h-screen fixed lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-200 ease-in-out lg:transition-none z-30">
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto lg:ml-0">
+            <div class="p-6">
+                <!-- Breadcrumb -->
+                <nav class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+                    <a href="10-1_사용자관리.html" class="hover:text-primary-600">사용자 관리</a>
+                    <i class="fas fa-chevron-right text-xs"></i>
+                    <span class="text-gray-900">권한 관리</span>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">권한 관리</h1>
+                            <p class="text-gray-600 mt-1">역할 기반 접근 제어를 통해 사용자 권한을 관리합니다.</p>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 flex items-center space-x-2">
+                                <i class="fas fa-plus"></i>
+                                <span>새 역할 추가</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role Summary Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-red-100 rounded-lg">
+                                <i class="fas fa-crown text-red-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">관리자</p>
+                                <p class="text-2xl font-bold text-gray-900">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-blue-100 rounded-lg">
+                                <i class="fas fa-user-cog text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">운영자</p>
+                                <p class="text-2xl font-bold text-gray-900">8</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-green-100 rounded-lg">
+                                <i class="fas fa-user text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">사용자</p>
+                                <p class="text-2xl font-bold text-gray-900">24</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-purple-100 rounded-lg">
+                                <i class="fas fa-eye text-purple-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">읽기 전용</p>
+                                <p class="text-2xl font-bold text-gray-900">12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role Management Matrix -->
+                <div class="bg-white rounded-lg shadow-sm border">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-lg font-semibold text-gray-900">역할별 권한 매트릭스</h2>
+                        <p class="text-sm text-gray-600 mt-1">각 역할별로 시스템 기능에 대한 접근 권한을 설정합니다.</p>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">
+                                        기능/모듈
+                                    </th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <div class="flex flex-col items-center">
+                                            <i class="fas fa-crown text-red-600 mb-1"></i>
+                                            <span>관리자</span>
+                                        </div>
+                                    </th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <div class="flex flex-col items-center">
+                                            <i class="fas fa-user-cog text-blue-600 mb-1"></i>
+                                            <span>운영자</span>
+                                        </div>
+                                    </th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <div class="flex flex-col items-center">
+                                            <i class="fas fa-user text-green-600 mb-1"></i>
+                                            <span>사용자</span>
+                                        </div>
+                                    </th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <div class="flex flex-col items-center">
+                                            <i class="fas fa-eye text-purple-600 mb-1"></i>
+                                            <span>읽기 전용</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Dashboard -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-tachometer-alt text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">대시보드</div>
+                                                <div class="text-sm text-gray-500">메인 대시보드 접근</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>제한
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>읽기
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <!-- Project Management -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-folder-open text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">프로젝트 관리</div>
+                                                <div class="text-sm text-gray-500">프로젝트 생성/수정/삭제</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>제한
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <!-- Test Management -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-flask text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">시험 관리</div>
+                                                <div class="text-sm text-gray-500">스캔/부하 시험 실행</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>실행
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>읽기
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <!-- License Management -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-certificate text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">라이선스 관리</div>
+                                                <div class="text-sm text-gray-500">라이선스 발급/갱신</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>제한
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <!-- Report Management -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-file-alt text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">보고서 관리</div>
+                                                <div class="text-sm text-gray-500">보고서 생성/출력</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>생성
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>읽기
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <!-- User Management -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-users text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">사용자 관리</div>
+                                                <div class="text-sm text-gray-500">사용자 등록/수정/삭제</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>제한
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <!-- System Settings -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-cog text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">시스템 설정</div>
+                                                <div class="text-sm text-gray-500">시스템 환경 설정</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <!-- Audit Logs -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-shield-alt text-gray-400 mr-3"></i>
+                                            <div>
+                                                <div class="text-sm font-medium text-gray-900">감사 로그</div>
+                                                <div class="text-sm text-gray-500">감사 로그 조회</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">
+                                            <i class="fas fa-check mr-1"></i>전체
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                            <i class="fas fa-eye mr-1"></i>제한
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-times mr-1"></i>없음
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Role Details Section -->
+                <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Role Management -->
+                    <div class="bg-white rounded-lg shadow-sm border">
+                        <div class="p-6 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">역할 관리</h3>
+                            <p class="text-sm text-gray-600 mt-1">시스템 역할을 추가, 수정, 삭제합니다.</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                    <div class="flex items-center">
+                                        <div class="p-2 bg-red-100 rounded-lg mr-3">
+                                            <i class="fas fa-crown text-red-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-medium text-gray-900">시스템 관리자</h4>
+                                            <p class="text-sm text-gray-500">모든 권한 보유</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary-600 hover:text-primary-700">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-700">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                    <div class="flex items-center">
+                                        <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                                            <i class="fas fa-user-cog text-blue-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-medium text-gray-900">시험 운영자</h4>
+                                            <p class="text-sm text-gray-500">시험 관련 권한 보유</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary-600 hover:text-primary-700">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-700">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                    <div class="flex items-center">
+                                        <div class="p-2 bg-green-100 rounded-lg mr-3">
+                                            <i class="fas fa-user text-green-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-medium text-gray-900">일반 사용자</h4>
+                                            <p class="text-sm text-gray-500">기본 사용 권한</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary-600 hover:text-primary-700">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-700">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                    <div class="flex items-center">
+                                        <div class="p-2 bg-purple-100 rounded-lg mr-3">
+                                            <i class="fas fa-eye text-purple-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-medium text-gray-900">읽기 전용</h4>
+                                            <p class="text-sm text-gray-500">조회 권한만 보유</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary-600 hover:text-primary-700">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-700">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Permission Templates -->
+                    <div class="bg-white rounded-lg shadow-sm border">
+                        <div class="p-6 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">권한 템플릿</h3>
+                            <p class="text-sm text-gray-600 mt-1">자주 사용하는 권한 조합을 템플릿으로 저장합니다.</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h4 class="text-sm font-medium text-gray-900 mb-2">프로젝트 매니저</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="inline-flex px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">프로젝트 관리</span>
+                                        <span class="inline-flex px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">시험 실행</span>
+                                        <span class="inline-flex px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">보고서 생성</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h4 class="text-sm font-medium text-gray-900 mb-2">시험 엔지니어</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="inline-flex px-2 py-1 text-xs bg-green-100 text-green-800 rounded">시험 실행</span>
+                                        <span class="inline-flex px-2 py-1 text-xs bg-green-100 text-green-800 rounded">보고서 생성</span>
+                                        <span class="inline-flex px-2 py-1 text-xs bg-green-100 text-green-800 rounded">데이터 조회</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h4 class="text-sm font-medium text-gray-900 mb-2">고객사 담당자</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="inline-flex px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">프로젝트 조회</span>
+                                        <span class="inline-flex px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">보고서 조회</span>
+                                        <span class="inline-flex px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">결과 다운로드</span>
+                                    </div>
+                                </div>
+
+                                <button class="w-full mt-4 px-4 py-2 border border-dashed border-gray-300 rounded-lg text-gray-600 hover:text-gray-900 hover:border-gray-400">
+                                    <i class="fas fa-plus mr-2"></i>
+                                    새 템플릿 추가
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sidebar toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('-translate-x-full');
+                });
+            }
+        });
+    </script>
+</main></div></div><title>COONTEC 사이버복원력 시험도구</title><meta name="description" content="선박 사이버복원력 인증 통합 관리 시스템">
+
+</body></html>
+<script src="enhanced-sidebar.js"></script>
+</body></html>

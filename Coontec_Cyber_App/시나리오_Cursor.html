@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>시나리오 - Coontec Cyber</title>
+  <style>
+    :root {
+      --background: 12 14% 10%;
+      --foreground: 220 14% 96%;
+      --muted: 220 9% 25%;
+      --muted-foreground: 220 9% 70%;
+      --card: 220 12% 14%;
+      --card-foreground: 220 14% 96%;
+      --border: 220 9% 22%;
+      --primary: 210 92% 60%;
+      --primary-foreground: 210 100% 98%;
+      --accent: 260 92% 64%;
+      --accent-foreground: 260 100% 98%;
+      --ring: 210 92% 60%;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: hsl(var(--foreground));
+      background: radial-gradient(1000px 600px at 0% 0%, hsla(210,90%,60%,0.06), transparent 60%),
+                  radial-gradient(1000px 600px at 100% 0%, hsla(260,92%,64%,0.06), transparent 60%),
+                  hsl(var(--background));
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header { display: grid; gap: 16px; padding: 8px 0 16px; }
+    .title { font-weight: 800; letter-spacing: -0.02em; }
+    .title .em { background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+                 -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { color: hsl(var(--muted-foreground)); max-width: 72ch; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; text-decoration: none; font-weight: 600; border: 1px solid hsl(var(--border)); color: hsl(var(--foreground)); background: hsl(var(--card)); }
+    .chip:hover { border-color: hsl(var(--primary)); box-shadow: 0 0 0 4px hsla(210,90%,60%,0.15) inset; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; }
+    .badge-web { background: hsla(210,90%,60%,0.15); color: hsl(var(--primary-foreground)); border: 1px solid hsla(210,90%,60%,0.35); }
+    .badge-app { background: hsla(260,92%,64%,0.15); color: hsl(var(--accent-foreground)); border: 1px solid hsla(260,92%,64%,0.35); }
+
+    section { margin-top: 28px; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .section-title { display: inline-flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } }
+
+    .card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: var(--radius); overflow: clip; position: relative; }
+    .card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(255,255,255,0.02)); pointer-events: none; }
+    .card:hover { border-color: hsl(var(--primary)); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5), 0 0 0 1px hsla(210,90%,60%,0.35) inset; transform: translateY(-1px); transition: 160ms ease; }
+    .card-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid hsl(var(--border)); }
+    .card-title { font-weight: 700; letter-spacing: -0.01em; display:flex; align-items:center; gap:10px; }
+    .card-meta { color: hsl(var(--muted-foreground)); font-size: 12px; margin-left: auto; }
+    .icon { width: 20px; height: 20px; color: hsl(var(--primary)); flex: none; }
+    .content { padding: 14px 16px 16px; display: grid; gap: 10px; }
+    .kv { display: grid; grid-template-columns: 110px 1fr; gap: 8px; align-items: start; }
+    .k { color: hsl(var(--muted-foreground)); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 3px; }
+    .v { color: hsl(var(--foreground)); }
+    .steps { margin: 0; padding-left: 18px; }
+    .steps li { margin: 2px 0; }
+
+    .hr { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent); margin: 20px 0; }
+    .footer-note { color: hsl(var(--muted-foreground)); font-size: 12px; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge badge-web">시나리오</div>
+      <div class="title" style="font-size: clamp(28px, 3.4vw, 42px);">
+        Coontec Cyber <span class="em">사용자 시나리오</span>
+      </div>
+      <div class="subtitle">모든 시나리오를 한 화면에서 확인할 수 있도록 구성했습니다. 탭/드롭다운 없이 카드 레이아웃으로 일괄 노출되며, shadcn/ui 톤 앤 매너와 Lucide 아이콘을 인라인으로 적용했습니다.</div>
+      <div class="chips">
+        <a class="chip" href="#web">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18M3 10h18M3 16h18M3 20h18"/></svg>
+          웹화면
+        </a>
+        <a class="chip" href="#app">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 18h6"/></svg>
+          어플리케이션
+        </a>
+      </div>
+    </header>
+
+    <div class="hr"></div>
+
+    <section id="web">
+      <div class="section-head">
+        <div class="section-title">
+          <span class="badge badge-web">웹화면</span>
+          <span>시나리오</span>
+        </div>
+      </div>
+      <div class="grid">
+        <!-- 웹화면: 로그인 및 대시보드 진입 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>
+              로그인 및 대시보드 진입
+            </div>
+            <div class="card-meta">보안/접근</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">안전한 접근 및 현황 확인</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v">
+              <ol class="steps">
+                <li>이메일 입력</li>
+                <li>비밀번호 입력</li>
+                <li>로그인 클릭</li>
+                <li>2FA/SSO 선택 시 연동 인증</li>
+                <li>메인 대시보드 도달</li>
+              </ol>
+            </div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">계정 존재, 권한 유효</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">대시보드 로딩, 사용자별 위젯 표시</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 비밀번호 재설정 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><path d="M15 21h6"/><path d="M2 21h6"/></svg>
+              비밀번호 재설정
+            </div>
+            <div class="card-meta">계정 복구</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">계정 복구</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>이메일 입력</li><li>인증코드 수신/입력</li><li>새 비밀번호 설정</li><li>로그인 화면 이동</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">이메일 인증 수신 가능</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">비밀번호 갱신, 재로그인 가능</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 프로젝트 생성(현조선-NBM) -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10"/><path d="M7 12h6"/></svg>
+              프로젝트 생성(현조선-NBM)
+            </div>
+            <div class="card-meta">프로젝트</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">통합 프로젝트 등록</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>현조선 선택</li><li>NBM 연동 선택</li><li>Job/Work ID 입력</li><li>연동 확인</li><li>생성 완료</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">NBM API 접근</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">신규 프로젝트 생성, 상세로 이동</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 프로젝트 생성(신조선-수동) -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg>
+              프로젝트 생성(신조선-수동)
+            </div>
+            <div class="card-meta">프로젝트</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">신규 선박 프로젝트 개설</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>신조선 선택</li><li>선박정보 입력</li><li>저장</li><li>상세 이동</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">필수 선박정보 확보</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">프로젝트 생성, 상세 편집 가능</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 존 관리 및 토폴로지 확인 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.6 8.6 10 10"/><path d="M13.4 8.6 12 10"/><path d="M6 9v3"/><path d="M18 9v3"/></svg>
+              존 관리 및 토폴로지 확인
+            </div>
+            <div class="card-meta">네트워크</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">네트워크 구조 파악</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>프로젝트 상세 진입</li><li>Zone 관리 열람</li><li>토폴로지 보기 선택</li><li>노드/링크 확인</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">프로젝트 및 자산 데이터</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">토폴로지 시각화 확인</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 스캔시험 수행 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/></svg>
+              스캔시험 수행
+            </div>
+            <div class="card-meta">시험</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">자산/취약점 탐지</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>시험 설정</li><li>범위/포트/옵션 지정</li><li>실행</li><li>진행 모니터링</li><li>결과 보기</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">시험 권한, 대상 네트워크 접근</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">발견자산/취약점 결과 생성</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 부하시험 수행 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              부하시험 수행
+            </div>
+            <div class="card-meta">성능</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">성능/안정성 검증</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>시험 설정</li><li>대상/전송률 지정</li><li>실행</li><li>지표 모니터링</li><li>결과 보기</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">대상 서비스 사전 동의</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">성능 지표 결과 생성</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 보고서 생성/출력 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+              보고서 생성/출력
+            </div>
+            <div class="card-meta">문서화</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">결과 문서화</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>유형 선택(통합/맞춤)</li><li>기간/템플릿 설정</li><li>출력</li><li>PDF/Excel 다운로드</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">결과 데이터 확보</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">파일 생성 및 다운로드</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 라이선스 발급/갱신 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M7 5h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+              라이선스 발급/갱신
+            </div>
+            <div class="card-meta">권한</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">사용 권한 관리</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>고객사 선택</li><li>인증서 생성/기간 연장</li><li>완료</li><li>검증 로그 확인</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">관리자 권한</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">라이선스 상태 최신화</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 권한/사용자 관리 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/></svg>
+              권한/사용자 관리
+            </div>
+            <div class="card-meta">보안</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">보안/접근 통제</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>사용자 등록/수정</li><li>역할 권한 매트릭스 설정</li><li>저장</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">관리자 권한</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">권한 반영, 접근 제어 적용</div></div>
+          </div>
+        </article>
+
+        <!-- 웹화면: 감사/운영 로그 조회 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M7 21h10"/><path d="M12 17v4"/></svg>
+              감사/운영 로그 조회
+            </div>
+            <div class="card-meta">감사</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">활동 추적/감사</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>로그 메뉴 진입</li><li>필터 설정</li><li>CSV 내보내기</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">로그 수집 활성화</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">감사 근거 확보</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="app">
+      <div class="section-head">
+        <div class="section-title">
+          <span class="badge badge-app">어플리케이션</span>
+          <span>시나리오</span>
+        </div>
+      </div>
+      <div class="grid">
+        <!-- 앱: 생체 로그인 및 홈 진입 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+              생체 로그인 및 홈 진입
+            </div>
+            <div class="card-meta">인증</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">빠른 인증</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>앱 실행</li><li>생체 인증 또는 비밀번호</li><li>대시보드 진입</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">기기 생체 등록</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">홈 위젯 표시</div></div>
+          </div>
+        </article>
+
+        <!-- 앱: 존별 스캔시험 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M2 12h4"/><path d="M18 12h4"/></svg>
+              존별 스캔시험
+            </div>
+            <div class="card-meta">현장 점검</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">현장 즉시 점검</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>네트워크 존 선택</li><li>스캔 설정</li><li>실행</li><li>진행 확인</li><li>결과 상세</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">라이선스 유효, 네트워크 가용</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">결과 생성, 저장 가능</div></div>
+          </div>
+        </article>
+
+        <!-- 앱: 존별 부하시험 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              존별 부하시험
+            </div>
+            <div class="card-meta">성능</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">성능 점검</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>존 선택</li><li>부하 설정</li><li>실행</li><li>지표 확인</li><li>결과 상세</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">대상 서비스 동의</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">결과 생성, 저장 가능</div></div>
+          </div>
+        </article>
+
+        <!-- 앱: 오프라인 인증 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+              오프라인 인증
+            </div>
+            <div class="card-meta">라이선스</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">네트워크 불가 환경 인증</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>라이선스 화면</li><li>QR 스캔 또는 코드 입력</li><li>인증 완료</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">오프라인 코드 발급</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">인증 상태 업데이트</div></div>
+          </div>
+        </article>
+
+        <!-- 앱: 데이터 조회/분석 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+              데이터 조회/분석
+            </div>
+            <div class="card-meta">데이터</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">결과 확인/활용</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>시험 데이터 목록</li><li>필터/검색</li><li>상세/차트 분석</li><li>내보내기</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">데이터 적재</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">분석 인사이트 확보</div></div>
+          </div>
+        </article>
+
+        <!-- 앱: 백업/복구 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 3 3 12 12 12"/></svg>
+              백업/복구
+            </div>
+            <div class="card-meta">보호</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">데이터 보호</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>백업 대상 선택</li><li>실행</li><li>완료 확인</li><li>복구 시 복구 지점 선택</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">저장소 접근</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">백업/복구 완료</div></div>
+          </div>
+        </article>
+
+        <!-- 앱: 사설 보고서 출력 -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              사설 보고서 출력
+            </div>
+            <div class="card-meta">문서화</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">현장 전달용 문서</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>사설 보고서 선택</li><li>옵션 지정</li><li>PDF 생성/출력</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">템플릿 존재</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">PDF 생성</div></div>
+          </div>
+        </article>
+
+        <!-- 앱: 사용자 관리(TOL) -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/></svg>
+              사용자 관리(TOL)
+            </div>
+            <div class="card-meta">오프라인</div>
+          </div>
+          <div class="content">
+            <div class="kv"><div class="k">목표</div><div class="v">현장 사용자 통제</div></div>
+            <div class="kv"><div class="k">주요 단계</div><div class="v"><ol class="steps"><li>사용자 추가/수정/삭제</li><li>권한 설정</li><li>적용</li></ol></div></div>
+            <div class="kv"><div class="k">선행 조건</div><div class="v">오프라인 정책</div></div>
+            <div class="kv"><div class="k">결과</div><div class="v">사용자 권한 반영</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer-note">© Coontec Cyber – All scenarios displayed on a single page. No tabs, no dropdowns.</div>
+  </div>
+</body>
+</html>

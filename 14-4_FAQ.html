@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COONTEC 사이버복원력 시험도구</title>
+  <link rel="icon" href="/favicon.ico?favicon.45db1c09.ico" sizes="256x256" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .text-primary-600 { color: #2563eb; }
+    .bg-primary-600 { background-color: #2563eb; }
+    .hover\:text-primary-600:hover { color: #2563eb; }
+    .hover\:bg-primary-700:hover { background-color: #1d4ed8; }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .radio-item { display: flex; align-items: center; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="w-full border-b bg-white">
+      <div class="flex h-16 items-center px-4">
+        <div class="flex items-center gap-6">
+          <button class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6">
+              <path d="M4 12h16"></path>
+              <path d="M4 18h16"></path>
+              <path d="M4 6h16"></path>
+            </svg>
+          </button>
+          <a class="flex items-center gap-2" href="2-1_대시보드.html">
+            <span class="text-xl font-bold text-primary-600">COONTEC</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-sm font-medium hover:text-primary-600" href="2-1_대시보드.html">대시보드</a>
+            <a class="text-sm font-medium hover:text-primary-600" href="4-1_통합프로젝트.html">프로젝트 & 시험</a>
+          </nav>
+        </div>
+        <div class="ml-auto flex items-center gap-4">
+          <div class="relative">
+            <button class="flex items-center gap-1 text-sm hover:text-primary-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+              <span>한국어</span>
+            </button>
+          </div>
+          <a class="relative hover:text-primary-600" href="13-1_알림.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-5 w-5">
+              <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
+              <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
+            </svg>
+            <span class="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span>
+          </a>
+          <div class="relative">
+            <button class="flex items-center gap-2 hover:text-primary-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <aside class="hidden md:flex w-72 flex-col border-r bg-gray-50">
+        <!-- 사이드바는 enhanced-sidebar.js가 동적으로 생성 -->
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-6 bg-gray-50">
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900">FAQ</h1>
+            <p class="text-gray-600 mt-2">자주 묻는 질문</p>
+          </div>
+          
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow">
+          <div class="p-6 border-b">
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-semibold">자주 묻는 질문</h2>
+              <div class="flex items-center gap-3">
+                <input type="text" placeholder="질문 검색..." 
+                       class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                <select class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                  <option>전체 카테고리</option>
+                  <option>시스템 사용</option>
+                  <option>시험 관련</option>
+                  <option>라이선스</option>
+                  <option>기술 문제</option>
+                </select>
+                <a href="14-5_FAQ관리.html" class="px-4 py-2 bg-primary-600 text-white rounded-md text-sm hover:bg-primary-700">
+                  FAQ 관리
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <div class="space-y-4">
+              <div class="border rounded-lg">
+                <details class="group">
+                  <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="flex items-start gap-3">
+                      <span class="flex-shrink-0 text-primary-600 font-medium">Q</span>
+                      <span class="font-medium">COONTEC 사이버복원력 시험도구는 어떤 시스템인가요?</span>
+                    </div>
+                    <svg class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4">
+                    <div class="flex items-start gap-3 pt-2">
+                      <span class="flex-shrink-0 text-green-600 font-medium">A</span>
+                      <div class="text-gray-600">
+                        <p>COONTEC 사이버복원력 시험도구는 선박의 사이버 보안 복원력을 평가하고 인증하기 위한 통합 관리 시스템입니다.</p>
+                        <p class="mt-2">주요 기능으로는:</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                          <li>네트워크 취약점 스캔 및 분석</li>
+                          <li>시스템 부하 테스트 및 성능 평가</li>
+                          <li>자동화된 보고서 생성</li>
+                          <li>라이선스 관리 및 사용자 인증</li>
+                          <li>실시간 모니터링 및 알림</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <div class="border rounded-lg">
+                <details class="group">
+                  <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="flex items-start gap-3">
+                      <span class="flex-shrink-0 text-primary-600 font-medium">Q</span>
+                      <span class="font-medium">스캔시험과 부하시험의 차이점은 무엇인가요?</span>
+                    </div>
+                    <svg class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4">
+                    <div class="flex items-start gap-3 pt-2">
+                      <span class="flex-shrink-0 text-green-600 font-medium">A</span>
+                      <div class="text-gray-600">
+                        <p><strong>스캔시험:</strong></p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                          <li>네트워크 및 시스템의 보안 취약점을 탐지</li>
+                          <li>포트 스캔, 서비스 탐지, 취약점 분석 수행</li>
+                          <li>CVE 데이터베이스 기반 취약점 매칭</li>
+                        </ul>
+                        <p class="mt-3"><strong>부하시험:</strong></p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                          <li>시스템의 성능과 안정성을 평가</li>
+                          <li>동시 사용자 처리 능력 테스트</li>
+                          <li>스트레스 상황에서의 시스템 반응 분석</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <div class="border rounded-lg">
+                <details class="group">
+                  <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="flex items-start gap-3">
+                      <span class="flex-shrink-0 text-primary-600 font-medium">Q</span>
+                      <span class="font-medium">라이선스는 어떻게 발급받을 수 있나요?</span>
+                    </div>
+                    <svg class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4">
+                    <div class="flex items-start gap-3 pt-2">
+                      <span class="flex-shrink-0 text-green-600 font-medium">A</span>
+                      <div class="text-gray-600">
+                        <p>라이선스 발급 절차:</p>
+                        <ol class="list-decimal list-inside mt-2 space-y-2">
+                          <li>라이선스 메뉴에서 '라이선스 발급' 선택</li>
+                          <li>필요한 라이선스 유형 선택 (Standard/Enterprise/Premium)</li>
+                          <li>선박 정보 및 사용자 정보 입력</li>
+                          <li>결제 정보 확인 및 승인</li>
+                          <li>라이선스 키 발급 및 활성화</li>
+                        </ol>
+                        <p class="mt-3">오프라인 환경의 경우 '오프라인 인증' 기능을 사용할 수 있습니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <div class="border rounded-lg">
+                <details class="group">
+                  <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="flex items-start gap-3">
+                      <span class="flex-shrink-0 text-primary-600 font-medium">Q</span>
+                      <span class="font-medium">시험 중 오류가 발생하면 어떻게 해야 하나요?</span>
+                    </div>
+                    <svg class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4">
+                    <div class="flex items-start gap-3 pt-2">
+                      <span class="flex-shrink-0 text-green-600 font-medium">A</span>
+                      <div class="text-gray-600">
+                        <p>시험 중 오류 발생 시 다음 단계를 따라주세요:</p>
+                        <ol class="list-decimal list-inside mt-2 space-y-2">
+                          <li>운영 로그에서 상세 오류 메시지 확인</li>
+                          <li>네트워크 연결 상태 점검</li>
+                          <li>대상 시스템의 방화벽 설정 확인</li>
+                          <li>시험 설정 파라미터 재검토</li>
+                          <li>문제 지속 시 기술 지원팀 문의 (support@coontec.com)</li>
+                        </ol>
+                        <p class="mt-3">시험 데이터는 자동 저장되므로 중단된 지점부터 재개할 수 있습니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <div class="border rounded-lg">
+                <details class="group">
+                  <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="flex items-start gap-3">
+                      <span class="flex-shrink-0 text-primary-600 font-medium">Q</span>
+                      <span class="font-medium">보고서를 커스터마이징할 수 있나요?</span>
+                    </div>
+                    <svg class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4">
+                    <div class="flex items-start gap-3 pt-2">
+                      <span class="flex-shrink-0 text-green-600 font-medium">A</span>
+                      <div class="text-gray-600">
+                        <p>네, 보고서는 다양한 방식으로 커스터마이징 가능합니다:</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                          <li>템플릿 선택 및 수정</li>
+                          <li>로고 및 회사 정보 추가</li>
+                          <li>섹션별 포함/제외 설정</li>
+                          <li>차트 및 그래프 스타일 변경</li>
+                          <li>다국어 지원 (한국어/영어)</li>
+                        </ul>
+                        <p class="mt-3">사설 보고서 기능을 통해 완전히 맞춤형 보고서도 작성할 수 있습니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <div class="border rounded-lg">
+                <details class="group">
+                  <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="flex items-start gap-3">
+                      <span class="flex-shrink-0 text-primary-600 font-medium">Q</span>
+                      <span class="font-medium">데이터 백업은 어떻게 하나요?</span>
+                    </div>
+                    <svg class="h-5 w-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4">
+                    <div class="flex items-start gap-3 pt-2">
+                      <span class="flex-shrink-0 text-green-600 font-medium">A</span>
+                      <div class="text-gray-600">
+                        <p>데이터 백업 옵션:</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                          <li><strong>자동 백업:</strong> 매일/매주/매월 주기로 자동 실행</li>
+                          <li><strong>수동 백업:</strong> 데이터 관리 > 백업/복구에서 즉시 실행</li>
+                          <li><strong>선택적 백업:</strong> 특정 프로젝트나 데이터만 선택하여 백업</li>
+                        </ul>
+                        <p class="mt-3">백업 파일은 암호화되어 안전하게 저장되며, 필요시 특정 시점으로 복구할 수 있습니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold mb-4">추가 도움이 필요하신가요?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="#" class="flex items-center gap-3 p-4 bg-white rounded-lg hover:shadow-md transition-shadow">
+              <svg class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <div>
+                <div class="font-medium">사용자 매뉴얼</div>
+                <div class="text-sm text-gray-600">상세 가이드 문서</div>
+              </div>
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 p-4 bg-white rounded-lg hover:shadow-md transition-shadow">
+              <svg class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <div>
+                <div class="font-medium">기술 지원</div>
+                <div class="text-sm text-gray-600">02-1234-5678</div>
+              </div>
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 p-4 bg-white rounded-lg hover:shadow-md transition-shadow">
+              <svg class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <div>
+                <div class="font-medium">이메일 문의</div>
+                <div class="text-sm text-gray-600">support@coontec.com</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="enhanced-sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부하시험 설정 - COONTEC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .app-window {
+            background: #1e1e2e;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar {
+            background: #27293d;
+            border-right: 1px solid #3a3c52;
+        }
+        .content-area {
+            background: #2b2d42;
+            overflow-y: auto;
+        }
+        .card-dark {
+            background: #27293d;
+            border: 1px solid #3a3c52;
+        }
+        .form-input {
+            background: #1e1e2e;
+            border: 1px solid #3a3c52;
+            color: white;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-window">
+        <!-- 타이틀 바 -->
+        <div class="bg-gray-900 h-10 flex items-center justify-between px-4 border-b border-gray-700">
+            <div class="flex items-center gap-3">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-gray-400 text-sm">COONTEC 사이버복원력 시험도구 v2.0 - 부하시험 설정</span>
+            </div>
+        </div>
+
+        <div class="flex flex-1">
+            <!-- 사이드바 -->
+            <aside class="sidebar w-72 p-3 flex flex-col">
+                <!-- Content will be injected by enhanced-sidebar-app.js -->
+            </aside>
+
+            <!-- 메인 콘텐츠 -->
+            <main class="content-area flex-1 p-6">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-white mb-2">부하시험 설정</h2>
+                    <p class="text-gray-400">시스템 복원력 테스트 구성</p>
+                </div>
+
+                <!-- 시험 프로젝트 선택 -->
+                <div class="card-dark rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">프로젝트 정보</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">프로젝트 선택</label>
+                            <select class="form-input w-full px-3 py-2 rounded-lg">
+                                <option>PRJ-2024-001 - 한라호 (IMO: 9876543)</option>
+                                <option>PRJ-2024-002 - 백두산호 (IMO: 9876544)</option>
+                                <option>PRJ-2024-003 - 금강산호 (IMO: 9876545)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">시험명</label>
+                            <input type="text" class="form-input w-full px-3 py-2 rounded-lg" placeholder="부하시험 명칭 입력">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 부하시험 시나리오 -->
+                <div class="card-dark rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">시험 시나리오</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 border border-purple-500 cursor-pointer hover:bg-gray-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-purple-400">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                <h4 class="text-white font-medium">DDoS 공격</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">분산 서비스 거부 공격 시뮬레이션</p>
+                        </div>
+                        
+                        <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 border border-gray-600 cursor-pointer hover:bg-gray-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-400">
+                                    <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path>
+                                </svg>
+                                <h4 class="text-white font-medium">스트레스 테스트</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">시스템 한계점 측정</p>
+                        </div>
+
+                        <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 border border-gray-600 cursor-pointer hover:bg-gray-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-400">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <h4 class="text-white font-medium">내구성 테스트</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">장시간 부하 테스트</p>
+                        </div>
+
+                        <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 border border-gray-600 cursor-pointer hover:bg-gray-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-yellow-400">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                </svg>
+                                <h4 class="text-white font-medium">랜섬웨어 대응</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">암호화 공격 복구 시간</p>
+                        </div>
+
+                        <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 border border-gray-600 cursor-pointer hover:bg-gray-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-red-400">
+                                    <path d="M18 6 6 18"></path>
+                                    <path d="m6 6 12 12"></path>
+                                </svg>
+                                <h4 class="text-white font-medium">네트워크 차단</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">통신 차단 시 복구력</p>
+                        </div>
+
+                        <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 border border-gray-600 cursor-pointer hover:bg-gray-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-orange-400">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                                <h4 class="text-white font-medium">복합 시나리오</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">다중 공격 동시 대응</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 대상 시스템 -->
+                <div class="card-dark rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">대상 시스템</h3>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500" checked>
+                                <span class="text-sm text-gray-300">브릿지 시스템</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500" checked>
+                                <span class="text-sm text-gray-300">엔진제어 시스템</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500">
+                                <span class="text-sm text-gray-300">화물관리 시스템</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500">
+                                <span class="text-sm text-gray-300">통신 시스템</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500">
+                                <span class="text-sm text-gray-300">ECDIS</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500">
+                                <span class="text-sm text-gray-300">VDR</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500">
+                                <span class="text-sm text-gray-300">AIS</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox text-purple-500">
+                                <span class="text-sm text-gray-300">승무원 네트워크</span>
+                            </label>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">대상 IP 주소</label>
+                                <input type="text" class="form-input w-full px-3 py-2 rounded-lg" placeholder="192.168.1.100">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">대상 포트</label>
+                                <input type="text" class="form-input w-full px-3 py-2 rounded-lg" placeholder="80, 443, 8080">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 부하 설정 -->
+                <div class="card-dark rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">부하 강도 설정</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">부하 패턴</label>
+                            <select class="form-input w-full px-3 py-2 rounded-lg">
+                                <option>점진적 증가</option>
+                                <option>즉시 최대</option>
+                                <option>스파이크</option>
+                                <option>계단식</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">최대 동시 연결</label>
+                            <input type="number" class="form-input w-full px-3 py-2 rounded-lg" value="1000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">초당 요청 수</label>
+                            <input type="number" class="form-input w-full px-3 py-2 rounded-lg" value="100">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">시험 시간 (분)</label>
+                            <input type="number" class="form-input w-full px-3 py-2 rounded-lg" value="30">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">페이로드 크기 (KB)</label>
+                            <input type="number" class="form-input w-full px-3 py-2 rounded-lg" value="1024">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">프로토콜</label>
+                            <select class="form-input w-full px-3 py-2 rounded-lg">
+                                <option>HTTP</option>
+                                <option>HTTPS</option>
+                                <option>TCP</option>
+                                <option>UDP</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 모니터링 설정 -->
+                <div class="card-dark rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">모니터링 설정</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" class="form-checkbox text-purple-500" checked>
+                            <span class="text-sm text-gray-300">CPU 사용률 모니터링</span>
+                        </label>
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" class="form-checkbox text-purple-500" checked>
+                            <span class="text-sm text-gray-300">메모리 사용률 모니터링</span>
+                        </label>
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" class="form-checkbox text-purple-500" checked>
+                            <span class="text-sm text-gray-300">네트워크 대역폭 모니터링</span>
+                        </label>
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" class="form-checkbox text-purple-500" checked>
+                            <span class="text-sm text-gray-300">응답 시간 측정</span>
+                        </label>
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" class="form-checkbox text-purple-500">
+                            <span class="text-sm text-gray-300">패킷 손실률 측정</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 액션 버튼 -->
+                <div class="flex justify-end gap-3">
+                    <button class="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600">
+                        설정 저장
+                    </button>
+                    <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                        부하시험 시작
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="enhanced-sidebar-app.js"></script>
+</body>
+</html>

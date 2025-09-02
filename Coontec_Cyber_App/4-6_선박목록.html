@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험 대시보드 - COONTEC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .app-window {
+            background: #1e1e2e;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar {
+            background: #27293d;
+            border-right: 1px solid #3a3c52;
+        }
+        .content-area {
+            background: #2b2d42;
+        }
+        .card-dark {
+            background: #27293d;
+            border: 1px solid #3a3c52;
+        }
+        .zone-card {
+            background: #27293d;
+            border: 1px solid #3a3c52;
+            transition: all 0.3s;
+        }
+        .zone-card:hover {
+            border-color: #7c3aed;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+        }
+        .select-dark {
+            background: #1e1e2e;
+            border: 1px solid #3a3c52;
+            color: white;
+        }
+        .breadcrumb {
+            color: #9ca3af;
+        }
+        .breadcrumb-active {
+            color: #7c3aed;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-window">
+        <!-- 타이틀 바 -->
+        <div class="bg-gray-900 h-10 flex items-center justify-between px-4 border-b border-gray-700">
+            <div class="flex items-center gap-3">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-gray-400 text-sm">COONTEC 사이버복원력 시험도구 v2.0 - 시험 대시보드</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-gray-500">
+                <span>단축키: F5 새로고침 | F9 전체실행 | ESC 중지</span>
+            </div>
+        </div>
+
+        <div class="flex flex-1">
+            <!-- 단순화된 사이드바 -->
+            <aside class="sidebar w-72 p-3 flex flex-col">
+                <!-- Content will be injected by enhanced-sidebar-app.js -->
+            </aside>
+
+            <!-- 메인 콘텐츠 -->
+            <main class="content-area flex-1 p-6 overflow-y-auto">
+                <!-- 브레드크럼 -->
+                <div class="flex items-center gap-2 text-sm mb-4">
+                    <span class="breadcrumb">프로젝트 관리</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="breadcrumb">
+                        <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                    <span class="breadcrumb-active">시험 대시보드</span>
+                </div>
+
+                <!-- 헤더 with 프로젝트/선박 선택 -->
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-2">시험 관리 대시보드</h2>
+                        <p class="text-gray-400">네트워크 Zone별 시험을 관리하고 실행합니다</p>
+                    </div>
+                    
+                    <!-- 프로젝트/선박 선택 드롭다운 -->
+                    <div class="flex gap-3">
+                        <select class="select-dark px-4 py-2 rounded-lg focus:border-purple-500 focus:outline-none">
+                            <option>PRJ-2024-001: 한국해운</option>
+                            <option>PRJ-2024-002: 대한선박</option>
+                            <option>PRJ-2024-003: 가스해운</option>
+                        </select>
+                        <select class="select-dark px-4 py-2 rounded-lg focus:border-purple-500 focus:outline-none">
+                            <option>한라호 (IMO: 9876543)</option>
+                            <option>백두산호 (IMO: 9876544)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 선박 정보 카드 -->
+                <div class="card-dark rounded-lg p-4 mb-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-purple-400">
+                                <path d="M12 10.189V14"></path>
+                                <path d="M12 2v3"></path>
+                                <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"></path>
+                                <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-8.188-3.639a2 2 0 0 0-1.624 0L3 14a11.6 11.6 0 0 0 2.81 7.76"></path>
+                            </svg>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">한라호</h3>
+                                <p class="text-sm text-gray-400">컨테이너선 | 140,000 DWT | 현대중공업</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-purple-400">3</p>
+                                <p class="text-xs text-gray-400">네트워크 Zone</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-green-400">2</p>
+                                <p class="text-xs text-gray-400">완료</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-blue-400">1</p>
+                                <p class="text-xs text-gray-400">진행중</p>
+                            </div>
+                            <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                                토폴로지 보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone별 시험 관리 카드 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+                    <!-- Zone 1: 브릿지 네트워크 -->
+                    <div class="zone-card rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">브릿지 네트워크 Zone</h4>
+                                <p class="text-xs text-gray-400">192.168.1.0/24</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 bg-blue-600 bg-opacity-20 text-blue-400 rounded">장비 15개</span>
+                        </div>
+                        
+                        <!-- 시험 상태 -->
+                        <div class="space-y-2 mb-3">
+                            <div class="flex items-center justify-between p-2 bg-gray-800 rounded">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-400">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="m21 21-4.35-4.35"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm text-white">스캔시험</p>
+                                        <p class="text-xs text-gray-500">03-15 14:30 완료</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <span class="text-xs px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded">완료</span>
+                                    <button class="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded hover:bg-gray-600">
+                                        결과
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-2 bg-gray-800 rounded">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-400 animate-pulse">
+                                        <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm text-white">부하시험</p>
+                                        <p class="text-xs text-gray-500">진행중 (45%)</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-600 bg-opacity-20 text-blue-400 rounded">진행중</span>
+                                    <button class="text-xs px-2 py-1 bg-red-600 bg-opacity-20 text-red-400 rounded hover:bg-red-600 hover:bg-opacity-30">
+                                        중지
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 빠른 실행 버튼 -->
+                        <div class="flex gap-2">
+                            <button class="flex-1 px-3 py-2 text-sm bg-purple-600 text-white rounded hover:bg-purple-700">
+                                스캔 재실행
+                            </button>
+                            <button class="flex-1 px-3 py-2 text-sm bg-gray-700 text-gray-300 rounded hover:bg-gray-600">
+                                상세보기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Zone 2: 엔진제어 -->
+                    <div class="zone-card rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">엔진제어 Zone</h4>
+                                <p class="text-xs text-gray-400">192.168.2.0/24</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 bg-blue-600 bg-opacity-20 text-blue-400 rounded">장비 8개</span>
+                        </div>
+                        
+                        <!-- 시험 상태 -->
+                        <div class="space-y-2 mb-3">
+                            <div class="flex items-center justify-between p-2 bg-gray-800 rounded">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="m21 21-4.35-4.35"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm text-white">스캔시험</p>
+                                        <p class="text-xs text-gray-500">예정</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <span class="text-xs px-2 py-1 bg-gray-600 bg-opacity-20 text-gray-400 rounded">대기</span>
+                                    <button class="text-xs px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">
+                                        시작
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-2 bg-gray-800 rounded">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400">
+                                        <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm text-white">부하시험</p>
+                                        <p class="text-xs text-gray-500">예정</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <span class="text-xs px-2 py-1 bg-gray-600 bg-opacity-20 text-gray-400 rounded">대기</span>
+                                    <button class="text-xs px-2 py-1 bg-gray-700 text-gray-500 rounded" disabled>
+                                        시작
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 빠른 실행 버튼 -->
+                        <div class="flex gap-2">
+                            <button class="flex-1 px-3 py-2 text-sm bg-purple-600 text-white rounded hover:bg-purple-700">
+                                스캔 실행
+                            </button>
+                            <button class="flex-1 px-3 py-2 text-sm bg-gray-700 text-gray-300 rounded hover:bg-gray-600">
+                                설정
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Zone 3: 화물관리 -->
+                    <div class="zone-card rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">화물관리 Zone</h4>
+                                <p class="text-xs text-gray-400">192.168.3.0/24</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 bg-blue-600 bg-opacity-20 text-blue-400 rounded">장비 12개</span>
+                        </div>
+                        
+                        <!-- 시험 상태 -->
+                        <div class="space-y-2 mb-3">
+                            <div class="flex items-center justify-between p-2 bg-gray-800 rounded">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-400">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="m21 21-4.35-4.35"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm text-white">스캔시험</p>
+                                        <p class="text-xs text-gray-500">03-14 16:45 완료</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <span class="text-xs px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded">완료</span>
+                                    <button class="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded hover:bg-gray-600">
+                                        결과
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-2 bg-gray-800 rounded">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-400">
+                                        <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm text-white">부하시험</p>
+                                        <p class="text-xs text-gray-500">03-14 17:30 완료</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <span class="text-xs px-2 py-1 bg-green-600 bg-opacity-20 text-green-400 rounded">완료</span>
+                                    <button class="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded hover:bg-gray-600">
+                                        결과
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 빠른 실행 버튼 -->
+                        <div class="flex gap-2">
+                            <button class="flex-1 px-3 py-2 text-sm bg-green-600 text-white rounded hover:bg-green-700">
+                                보고서 생성
+                            </button>
+                            <button class="flex-1 px-3 py-2 text-sm bg-gray-700 text-gray-300 rounded hover:bg-gray-600">
+                                상세보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 전체 진행 상황 및 다중 실행 -->
+                <div class="card-dark rounded-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-white mb-3">전체 시험 진행률</h3>
+                            <div class="flex items-center gap-4">
+                                <div class="flex-1">
+                                    <div class="w-full bg-gray-700 rounded-full h-3">
+                                        <div class="bg-gradient-to-r from-purple-600 to-blue-600 h-3 rounded-full transition-all" style="width:65%"></div>
+                                    </div>
+                                </div>
+                                <span class="text-2xl font-bold text-purple-400">65%</span>
+                            </div>
+                            <p class="text-sm text-gray-400 mt-2">완료: 4개 | 진행중: 1개 | 대기: 1개</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-2">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                                전체 Zone 실행
+                            </button>
+                            <button class="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600">
+                                일정 관리
+                            </button>
+                            <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                                종합 보고서
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- 우측 사이드 패널 (상세 정보) -->
+            <aside class="w-80 bg-gray-900 border-l border-gray-700 p-4 hidden xl:block">
+                <h3 class="text-white font-semibold mb-4">실시간 활동</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-gray-800 rounded">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-blue-400">스캔 진행중</span>
+                            <span class="text-xs text-gray-500">45%</span>
+                        </div>
+                        <p class="text-xs text-gray-400">브릿지 Zone - 192.168.1.0/24</p>
+                        <div class="mt-2 w-full bg-gray-700 rounded-full h-1">
+                            <div class="bg-blue-600 h-1 rounded-full" style="width:45%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-3 bg-gray-800 rounded">
+                        <p class="text-green-400 mb-1">✓ 스캔 완료</p>
+                        <p class="text-xs text-gray-400">화물관리 Zone - 발견 장비: 12개</p>
+                        <p class="text-xs text-gray-500 mt-1">10분 전</p>
+                    </div>
+                    
+                    <div class="p-3 bg-gray-800 rounded">
+                        <p class="text-orange-400 mb-1">⚠ 취약점 발견</p>
+                        <p class="text-xs text-gray-400">브릿지 Zone - Critical: 2, High: 5</p>
+                        <p class="text-xs text-gray-500 mt-1">30분 전</p>
+                    </div>
+                </div>
+
+                <h3 class="text-white font-semibold mt-6 mb-4">빠른 액션</h3>
+                <div class="space-y-2">
+                    <button class="w-full px-3 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 text-sm text-left">
+                        📊 실시간 모니터링
+                    </button>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 text-sm text-left">
+                        📋 시험 예약
+                    </button>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 text-sm text-left">
+                        ⚙️ Zone 설정
+                    </button>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-gray-300 rounded hover:bg-gray-700 text-sm text-left">
+                        📤 결과 내보내기
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="enhanced-sidebar-app.js"></script>
+</body>
+</html>

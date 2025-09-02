@@ -1,0 +1,421 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico?favicon.45db1c09.ico" sizes="256x256" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .text-primary-600 { color: #2563eb; }
+  .bg-primary-600 { background-color: #2563eb; }
+  .hover\:text-primary-600:hover { color: #2563eb; }
+  .hover\:bg-primary-700:hover { background-color: #1d4ed8; }
+  .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .radio-item { display: flex; align-items: center; padding: 0.5rem 1rem; }
+</style>
+</head><body class="inter_59dee874-module__9CtR0q__className"><div hidden=""><!--/$--></div><div class="min-h-screen flex flex-col"><header class="w-full border-b bg-white"><div class="flex h-16 items-center px-4"><div class="flex items-center gap-6"><button class="md:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button><a class="flex items-center gap-2" href="2-1_메인대시보드(관리자).html"><span class="text-xl font-bold text-primary-600">COONTEC</span></a><nav class="hidden md:flex items-center gap-6"><a class="text-sm font-medium hover:text-primary-600" href="2-1_메인대시보드(관리자).html">대시보드</a><a class="text-sm font-medium hover:text-primary-600" href="4-1_통합프로젝트.html">프로젝트 & 시험</a></nav></div><div class="ml-auto flex items-center gap-4"><div class="relative"><button class="flex items-center gap-1 text-sm hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>한국어</span></button></div><a class="relative hover:text-primary-600" href="13-1_알림.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-5 w-5" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span class="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></span></a><div class="relative"><button class="flex items-center gap-2 hover:text-primary-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="text-sm">관리자</span></button></div></div></div></header>
+
+    <div class="flex flex-1"><aside class="hidden md:flex w-72 flex-col border-r bg-gray-50"><nav class="flex-1 space-y-1 px-2 py-4"><a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700" href="2-1_메인대시보드(관리자).html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard h-4 w-4" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg><span>대시보드</span></a><a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700" href="4-1_통합프로젝트.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-open h-4 w-4" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"></path></svg><span>프로젝트 관리</span></a><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-search h-4 w-4" aria-hidden="true"><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"></path><path d="m9 18-1.5-1.5"></path><circle cx="5" cy="14" r="3"></circle></svg><span>시험 관리</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-4 w-4" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span>보고서</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card h-4 w-4" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg><span>라이선스</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-4 w-4" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg><span>사용자 관리</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-4 w-4" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg><span>시스템 설정</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-4 w-4" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg><span>감사/로그</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700" href="13-1_알림.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-4 w-4" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span>알림</span></a><div><button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 text-gray-700"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-question-mark h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg><span>도움말</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div></nav><div class="border-t p-4"><a class="flex items-center gap-2 text-sm text-gray-600 hover:text-primary-600" href="3-1_공지사항.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-4 w-4" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span>공지사항</span></a></div></aside><main class="flex-1 p-6 bg-gray-50">
+            <div class="p-6">
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">보고서 버전 관리</h1>
+                            <p class="text-gray-600 mt-1">보고서의 버전 히스토리를 관리하고 비교합니다.</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 flex items-center space-x-2">
+                                <i class="fas fa-list"></i>
+                                <span>보고서 목록</span>
+                            </button>
+                            <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 flex items-center space-x-2">
+                                <i class="fas fa-plus"></i>
+                                <span>새 버전</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Info -->
+                <div class="bg-white rounded-lg shadow-sm border p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold text-gray-900">한라호 보안진단 종합 보고서</h2>
+                        <div class="flex items-center space-x-2">
+                            <span class="inline-flex px-3 py-1 text-sm font-medium bg-green-100 text-green-800 rounded-full">
+                                <i class="fas fa-check-circle mr-1"></i>
+                                최종 승인됨
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div>
+                            <dt class="text-sm font-medium text-gray-500">보고서 ID</dt>
+                            <dd class="mt-1 text-sm text-gray-900">RPT-2024-0821-001</dd>
+                        </div>
+                        <div>
+                            <dt class="text-sm font-medium text-gray-500">프로젝트</dt>
+                            <dd class="mt-1 text-sm text-gray-900">한라호 보안진단</dd>
+                        </div>
+                        <div>
+                            <dt class="text-sm font-medium text-gray-500">생성자</dt>
+                            <dd class="mt-1 text-sm text-gray-900">김분석</dd>
+                        </div>
+                        <div>
+                            <dt class="text-sm font-medium text-gray-500">최종 수정</dt>
+                            <dd class="mt-1 text-sm text-gray-900">2024-08-21 15:30</dd>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version History -->
+                <div class="bg-white rounded-lg shadow-sm border mb-6">
+                    <div class="p-6 border-b border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-lg font-semibold text-gray-900">버전 히스토리</h2>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-sm text-gray-600 hover:text-gray-900" id="compare-versions">
+                                    <i class="fas fa-exchange-alt mr-1"></i>
+                                    버전 비교
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="divide-y divide-gray-200">
+                        <!-- Version 3.0 -->
+                        <div class="p-6 hover:bg-gray-50">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <input type="radio" name="version-compare" value="3.0" class="mt-1">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3">
+                                            <h3 class="text-base font-semibold text-gray-900">버전 3.0</h3>
+                                            <span class="inline-flex px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
+                                                현재
+                                            </span>
+                                            <span class="inline-flex px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                                                승인됨
+                                            </span>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            최종 승인 버전 - 경영진 검토 의견 반영 완료
+                                        </p>
+                                        <div class="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                                            <span><i class="fas fa-user mr-1"></i>김분석</span>
+                                            <span><i class="fas fa-clock mr-1"></i>2024-08-21 15:30</span>
+                                            <span><i class="fas fa-file-alt mr-1"></i>PDF, 45페이지</span>
+                                        </div>
+                                        
+                                        <!-- Change Summary -->
+                                        <div class="mt-3 p-3 bg-gray-50 rounded-lg">
+                                            <h4 class="text-xs font-medium text-gray-700 mb-2">주요 변경사항</h4>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• 경영진 요약 섹션 추가</li>
+                                                <li>• 위험도 평가 기준 업데이트</li>
+                                                <li>• 권장사항 우선순위 재정렬</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800 text-sm">
+                                        <i class="fas fa-eye mr-1"></i>보기
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800 text-sm">
+                                        <i class="fas fa-download mr-1"></i>다운로드
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Version 2.1 -->
+                        <div class="p-6 hover:bg-gray-50">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <input type="radio" name="version-compare" value="2.1" class="mt-1">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3">
+                                            <h3 class="text-base font-semibold text-gray-900">버전 2.1</h3>
+                                            <span class="inline-flex px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">
+                                                검토중
+                                            </span>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            중간 검토 버전 - 기술팀 피드백 반영
+                                        </p>
+                                        <div class="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                                            <span><i class="fas fa-user mr-1"></i>이검토</span>
+                                            <span><i class="fas fa-clock mr-1"></i>2024-08-20 14:15</span>
+                                            <span><i class="fas fa-file-alt mr-1"></i>PDF, 42페이지</span>
+                                        </div>
+                                        
+                                        <div class="mt-3 p-3 bg-gray-50 rounded-lg">
+                                            <h4 class="text-xs font-medium text-gray-700 mb-2">주요 변경사항</h4>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• 네트워크 토폴로지 다이어그램 수정</li>
+                                                <li>• 취약점 상세 설명 보강</li>
+                                                <li>• 부록 A: 스캔 결과 원본 데이터 추가</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800 text-sm">
+                                        <i class="fas fa-eye mr-1"></i>보기
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800 text-sm">
+                                        <i class="fas fa-download mr-1"></i>다운로드
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Version 2.0 -->
+                        <div class="p-6 hover:bg-gray-50">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <input type="radio" name="version-compare" value="2.0" class="mt-1">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3">
+                                            <h3 class="text-base font-semibold text-gray-900">버전 2.0</h3>
+                                            <span class="inline-flex px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">
+                                                초안
+                                            </span>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            부하시험 결과 통합 버전
+                                        </p>
+                                        <div class="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                                            <span><i class="fas fa-user mr-1"></i>김분석</span>
+                                            <span><i class="fas fa-clock mr-1"></i>2024-08-19 16:45</span>
+                                            <span><i class="fas fa-file-alt mr-1"></i>PDF, 38페이지</span>
+                                        </div>
+                                        
+                                        <div class="mt-3 p-3 bg-gray-50 rounded-lg">
+                                            <h4 class="text-xs font-medium text-gray-700 mb-2">주요 변경사항</h4>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• 부하시험 결과 섹션 추가</li>
+                                                <li>• 성능 지표 분석 차트 추가</li>
+                                                <li>• 권장사항 섹션 확장</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800 text-sm">
+                                        <i class="fas fa-eye mr-1"></i>보기
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800 text-sm">
+                                        <i class="fas fa-download mr-1"></i>다운로드
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Version 1.0 -->
+                        <div class="p-6 hover:bg-gray-50">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <input type="radio" name="version-compare" value="1.0" class="mt-1">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3">
+                                            <h3 class="text-base font-semibold text-gray-900">버전 1.0</h3>
+                                            <span class="inline-flex px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">
+                                                초기 버전
+                                            </span>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            스캔시험 결과 기반 초기 보고서
+                                        </p>
+                                        <div class="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                                            <span><i class="fas fa-user mr-1"></i>김분석</span>
+                                            <span><i class="fas fa-clock mr-1"></i>2024-08-18 10:20</span>
+                                            <span><i class="fas fa-file-alt mr-1"></i>PDF, 32페이지</span>
+                                        </div>
+                                        
+                                        <div class="mt-3 p-3 bg-gray-50 rounded-lg">
+                                            <h4 class="text-xs font-medium text-gray-700 mb-2">주요 내용</h4>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• 스캔시험 결과 요약</li>
+                                                <li>• 발견된 취약점 목록</li>
+                                                <li>• 기본 권장사항</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800 text-sm">
+                                        <i class="fas fa-eye mr-1"></i>보기
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800 text-sm">
+                                        <i class="fas fa-download mr-1"></i>다운로드
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version Comparison Modal (Hidden by default) -->
+                <div id="comparison-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+                    <div class="flex items-center justify-center min-h-screen p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-6xl max-h-full overflow-auto">
+                            <div class="p-6 border-b border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-lg font-semibold text-gray-900">버전 비교</h2>
+                                    <button id="close-comparison" class="text-gray-400 hover:text-gray-600">
+                                        <i class="fas fa-times text-xl"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="p-6">
+                                <div class="grid grid-cols-2 gap-6">
+                                    <!-- Left Version -->
+                                    <div>
+                                        <div class="mb-4">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">비교할 버전 선택</label>
+                                            <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                                <option value="3.0">버전 3.0 (현재)</option>
+                                                <option value="2.1">버전 2.1 (검토중)</option>
+                                                <option value="2.0">버전 2.0 (초안)</option>
+                                                <option value="1.0">버전 1.0 (초기)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="bg-gray-50 rounded-lg p-4 h-96 overflow-auto">
+                                            <h3 class="font-medium text-gray-900 mb-3">버전 3.0 내용</h3>
+                                            <div class="text-sm text-gray-600 space-y-2">
+                                                <p><strong>1. 요약</strong></p>
+                                                <p class="ml-4">한라호 선박의 보안진단을 실시한 결과, 총 15개의 취약점이 발견되었습니다.</p>
+                                                
+                                                <p><strong>2. 경영진 요약</strong> <span class="text-green-600">[신규 추가됨]</span></p>
+                                                <p class="ml-4">전체적인 보안 수준은 양호하나, 중요한 네트워크 구간에서 보안 강화가 필요합니다.</p>
+                                                
+                                                <p><strong>3. 위험도 평가</strong></p>
+                                                <p class="ml-4">고위험: 3개, 중위험: 7개, 저위험: 5개</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Version -->
+                                    <div>
+                                        <div class="mb-4">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">비교 대상 버전</label>
+                                            <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                                <option value="3.0">버전 3.0 (현재)</option>
+                                                <option value="2.1" selected>버전 2.1 (검토중)</option>
+                                                <option value="2.0">버전 2.0 (초안)</option>
+                                                <option value="1.0">버전 1.0 (초기)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="bg-gray-50 rounded-lg p-4 h-96 overflow-auto">
+                                            <h3 class="font-medium text-gray-900 mb-3">버전 2.1 내용</h3>
+                                            <div class="text-sm text-gray-600 space-y-2">
+                                                <p><strong>1. 요약</strong></p>
+                                                <p class="ml-4">한라호 선박의 보안진단을 실시한 결과, 총 15개의 취약점이 발견되었습니다.</p>
+                                                
+                                                <p class="text-red-600"><strong>2. 경영진 요약</strong> [삭제됨]</p>
+                                                
+                                                <p><strong>3. 위험도 평가</strong></p>
+                                                <p class="ml-4">고위험: 4개, 중위험: 6개, 저위험: 5개 <span class="text-yellow-600">[수정됨]</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Difference Summary -->
+                                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                                    <h3 class="font-medium text-gray-900 mb-3">변경 사항 요약</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                        <div class="text-green-600">
+                                            <i class="fas fa-plus-circle mr-1"></i>
+                                            <strong>추가됨:</strong> 경영진 요약 섹션
+                                        </div>
+                                        <div class="text-yellow-600">
+                                            <i class="fas fa-edit mr-1"></i>
+                                            <strong>수정됨:</strong> 위험도 평가 기준
+                                        </div>
+                                        <div class="text-blue-600">
+                                            <i class="fas fa-exchange-alt mr-1"></i>
+                                            <strong>재정렬됨:</strong> 권장사항 우선순위
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-800 flex items-center space-x-2">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>보고서 목록으로</span>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center space-x-3">
+                        <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 flex items-center space-x-2">
+                            <i class="fas fa-copy"></i>
+                            <span>버전 복사</span>
+                        </button>
+                        <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 flex items-center space-x-2">
+                            <i class="fas fa-edit"></i>
+                            <span>편집</span>
+                        </button>
+                        <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 flex items-center space-x-2">
+                            <i class="fas fa-check"></i>
+                            <span>승인</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const compareBtn = document.getElementById('compare-versions');
+            const comparisonModal = document.getElementById('comparison-modal');
+            const closeBtn = document.getElementById('close-comparison');
+
+            // Show comparison modal
+            compareBtn.addEventListener('click', function() {
+                comparisonModal.classList.remove('hidden');
+            });
+
+            // Close comparison modal
+            closeBtn.addEventListener('click', function() {
+                comparisonModal.classList.add('hidden');
+            });
+
+            // Close modal on backdrop click
+            comparisonModal.addEventListener('click', function(e) {
+                if (e.target === comparisonModal) {
+                    comparisonModal.classList.add('hidden');
+                }
+            });
+
+            // Version comparison radio buttons
+            const versionRadios = document.querySelectorAll('input[name="version-compare"]');
+            versionRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // Enable compare button when two versions are selected
+                    const selectedVersions = document.querySelectorAll('input[name="version-compare"]:checked');
+                    if (selectedVersions.length >= 2) {
+                        compareBtn.classList.remove('text-gray-400');
+                        compareBtn.classList.add('text-primary-600');
+                    }
+                });
+            });
+        });
+    </script>
+</main></div></div><title>COONTEC 사이버복원력 시험도구</title><meta name="description" content="선박 사이버복원력 인증 통합 관리 시스템">
+
+</body></html>
+<script src="enhanced-sidebar.js"></script>
+</body></html>
