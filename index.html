@@ -79,39 +79,34 @@
             padding: 1.5rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .card:hover {
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             transform: translateY(-2px);
+            border-color: var(--primary);
         }
 
         .card-title {
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--foreground);
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .card:hover .card-title {
+            color: #1d4ed8;
         }
 
         .card-description {
             color: var(--muted);
             font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-link {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--primary-foreground);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: background 0.3s ease;
-        }
-
-        .card-link:hover {
-            background: #1d4ed8;
+            margin-bottom: 0;
         }
 
         .stats {
@@ -300,12 +295,13 @@
             container.innerHTML = '';
             
             pages.forEach(page => {
-                const card = document.createElement('div');
+                const card = document.createElement('a');
                 card.className = 'card';
+                card.href = page.file;
+                card.target = '_blank';
                 card.innerHTML = `
                     <div class="card-title">${page.title}</div>
                     <div class="card-description">${page.description}</div>
-                    <a href="${page.file}" class="card-link" target="_blank">화면 보기</a>
                 `;
                 container.appendChild(card);
             });
